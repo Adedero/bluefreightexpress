@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --accent-color: #FFB82B
+}
+
+.krub {
+  font-family: "Krub", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.krub-medium {
+  font-family: "Krub", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.krub-semibold {
+  font-family: "Krub", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.krub-bold {
+  font-family: "Krub", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+}
+
+
+body {
+  font-family:
+    Krub, Inter, 
+    'Segoe UI',
+    Tahoma, 
+    Geneva, 
+    Verdana, 
+    sans-serif;
+  font-weight: 450;
+  color: #1C1F35;
+}
