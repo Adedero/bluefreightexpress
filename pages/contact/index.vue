@@ -23,7 +23,7 @@ import orgData from '~/data/org';
         <img src="~/assets/img/contact-us.jpg" class="w-full h-full object-cover object-top absolute left-0 bottom-0 -z-10">
       </section>
       
-      <div class="py-20 px-4 lg:px-24 flex items-center justify-center">
+      <div class="py-20 lg:px-24 flex items-center justify-center">
         <div class="max-w-[54rem] bg-primary-500 text-white py-12 px-6 md:py-16 md:px-24 flex flex-col gap-5 items-center justify-center">
           <SubtitleText text="Contact Form" dark />
           <h4 class="rubik font-semibold text-3xl md:text-4xl">

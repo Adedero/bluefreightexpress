@@ -54,8 +54,10 @@ onUnmounted(() => {
     </div>
 
     <div :class="[isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]', 'grid transition-all duration-300 ease-out w-full bg-primary-500 text-white overflow-hidden']">
-      <div ref="small-nav" class="overflow-hidden p-4 w-full">
-        <MainNavLinkItem v-for="link, index in siteLinks" :link :key="link.label" :isLast="index === siteLinks.length - 1" />
+      <div ref="small-nav" class="overflow-hidden w-full">
+        <div class="p-4">
+          <MainNavLinkItem v-for="link, index in siteLinks" :link :key="link.label" :isLast="index === siteLinks.length - 1" />
+        </div>
       </div>
     </div>
   </nav>
