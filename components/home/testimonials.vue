@@ -8,25 +8,25 @@ const testimonials = [
   {
     name: 'Elena Fischer',
     job: 'Freight Forwarder, Zurich',
-    message: "Blue Freight Logistics has been an absolute game-changer for our supply chain. Their efficiency and real-time tracking make international shipping seamless!",
+    message: "Blue Freight Express has been an absolute game-changer for our supply chain. Their efficiency and real-time tracking make international shipping seamless!",
     image: testimonial_1
   },
   {
     name: 'Lukas Meier',
     job: 'Operations Manager, Munich',
-    message: "Reliability is key in logistics, and Blue Freight Logistics delivers every time. Their professionalism and on-time delivery are unmatched.",
+    message: "Reliability is key in logistics, and Blue Freight Express delivers every time. Their professionalism and on-time delivery are unmatched.",
     image: testimonial_2
   },
   {
     name: 'Matteo Rossi',
     job: 'Warehouse Supervisor, Milan',
-    message: "Our business depends on fast and secure shipping, and Blue Freight Logistics never lets us down. Highly recommended for European freight!",
+    message: "Our business depends on fast and secure shipping, and Blue Freight Express never lets us down. Highly recommended for European freight!",
     image: testimonial_3
   },
   {
     name: 'Sophie Dubois',
     job: 'E-commerce Manager, Geneva',
-    message: "The customer support and seamless freight solutions from Blue Freight Logistics have helped our online store grow exponentially!",
+    message: "The customer support and seamless freight solutions from Blue Freight Express have helped our online store grow exponentially!",
     image: testimonial_4
   }
 ]

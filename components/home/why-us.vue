@@ -61,9 +61,9 @@ const works = [
         </div>
 
         <div class="relative flex justify-end">
-          <img src="~/assets/img/port.jpg" alt="plane" class="h-full w-full lg:h-[90%] lg:w-[90%] object-cover">
+          <img src="~/assets/img/port.jpg" alt="plane" class="h-[30rem] w-full lg:h-[90%] lg:w-[90%] object-cover">
 
-          <img src="~/assets/img/warehouse-workers.jpeg" class="absolute w-80 h-56 left-0 -bottom-0 object-cover border-t-[24px] border-r-[24px] border-white" />
+          <img src="~/assets/img/warehouse-workers-1.jpg" class="absolute w-80 h-56 left-0 -bottom-0 object-cover border-t-[24px] border-r-[24px] border-white" />
         </div>
       </div>
 

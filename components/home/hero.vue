@@ -20,6 +20,6 @@
       <PackageTracker />
     </div>
 
-    <img src="~/assets/img/hero-img.jpg" alt="ship" class="w-full h-full object-cover absolute left-0 bottom-0 -z-10">
+    <img src="~/assets/img/hero-img.jpg" class="w-full h-full object-cover absolute left-0 bottom-0 -z-10">
   </section>
 </template>

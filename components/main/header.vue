@@ -4,8 +4,8 @@
       <div class="flex items-center gap-2">
         <Logo />
         <h1 class="text-3xl font-bold rubik">
-          <span class="md:hidden">BFL</span>
-          <span class="hidden md:inline text-4xl">Blue Freight Logistics</span>
+          <span class="md:hidden">BFE</span>
+          <span class="hidden md:inline text-4xl">Blue Freight Express</span>
         </h1>
       </div>
       <div class="w-full flex justify-end">

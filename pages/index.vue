@@ -8,7 +8,7 @@
       <HomeServices />
       <HomeWhyUs />
       <HomeTestimonials />
-      <HomeAffiliates />
+      <Affiliates />
       <HomeFaq />
       <img src="~/assets/img/harbour-2.jpg" class="w-dvw">
     </NuxtLayout>

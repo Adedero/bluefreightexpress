@@ -3,7 +3,7 @@
     <MainHeader />
     <div class="relative">
       <MainNavbar />
-      <slot />
+      <slot></slot>
     </div>
     <ScrollTop />
     <MainFooter />

@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  --accent-color: #FFB82B
+  --accent-color: #FFB82B;
+  --primary-color-100: #ced0d9;
+  --primary-color-200: #9da0b3;
+  --primary-color-300: #6b718e;
+  --primary-color-400: #3a4168;
+  --primary-color-500: #091242;
+  --primary-color-600: #070e35;
+  --primary-color-700: #050b28;
+  --primary-color-800: #04071a;
+  --primary-color-900: #02040d;
+  --surface-color: #F3F3F3;
+  --text-color: #1C1F35;
 }
 
 .krub {
@@ -44,4 +55,17 @@ body {
     sans-serif;
   font-weight: 450;
   color: #1C1F35;
+}
+
+
+.my-input {
+  background-color: transparent;
+  padding: 0.8rem 1rem;
+  border: 1px solid white;
+  outline: none
+}
+
+.form-control label {
+  font-size: 0.9rem;
+  font-weight: 600;
 }

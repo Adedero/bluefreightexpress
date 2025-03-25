@@ -42,7 +42,7 @@ const isOpen = ref<boolean>(false)
       :class="[isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]', 'grid transition-all duration-300 ease-out w-full overflow-hidden']"
     >
       <div class="pl-8 pr-4 overflow-hidden grid">
-        <NuxtLink v-for="item in link.items" :to="item.href" class="font-semibold py-4 text-sm hover:text-accent flex-grow">
+        <NuxtLink v-for="item in link.items" :to="item.href" :key="item.label" class="font-semibold py-4 text-sm hover:text-accent flex-grow">
           {{ item.label }}
         </NuxtLink>
       </div>
@@ -62,7 +62,7 @@ const isOpen = ref<boolean>(false)
       v-if="link.items && link.items.length > 0 && isHovering"
       class="absolute w-40 -bottom-[11.5rem] bg-white shadow p-4 rounded-md"
     >
-      <div v-if="link.items && link.items.length > 0" class="w-full h-full grid gap-4">
+      <div class="w-full h-full grid gap-4">
         <NuxtLink v-for="item in link.items" :to="item.href" :key="item.label" class="text-slate-500 hover:text-text-color hover:underline">
           {{ item.label }}
         </NuxtLink>
