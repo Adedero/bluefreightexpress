@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@vueuse/nuxt',
-    '@prisma/nuxt'
+    //'@prisma/nuxt'
   ],
   pages: true,
   runtimeConfig: {
