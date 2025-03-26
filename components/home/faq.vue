@@ -23,10 +23,8 @@
       </div> -->
     </div>
 
-    <div class="flex items-center justify-center">
-      <button class="bg-primary-500 px-8 py-4 font-semibold w-fit text-white hover:bg-accent hover:text-primary-500 transition-colors">
-        Have More Questions?
-      </button>
-    </div>
+    <NuxtLink to="/contact" class="flex items-center justify-center">
+      <MyButton text="Have More Questions?" />
+    </NuxtLink>
   </section>
 </template>

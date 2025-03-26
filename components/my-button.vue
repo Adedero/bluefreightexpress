@@ -24,7 +24,7 @@ const buttonClass = computed(() => {
   if (variant === 'secondary') {
     return {
       main: 'bg-accent text-primary-500 disabled:bg-accent/80 disabled:text-white/90',
-      before: 'before:bg-white/40'
+      before: 'before:bg-white'
     }
   }
   return {

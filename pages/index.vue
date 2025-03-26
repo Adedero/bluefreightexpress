@@ -5,6 +5,7 @@
   <div>
     <NuxtLayout name="main-default">
       <HomeHero />
+      <PackageTracker />
       <HomeServices />
       <HomeWhyUs />
       <HomeTestimonials />

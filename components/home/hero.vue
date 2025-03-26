@@ -11,15 +11,12 @@
         We're a leading provider of less-than-truckload freight transportation with the world-class network, technology and service our customers need at all the time.
       </p>
 
-      <button class="bg-accent px-8 py-4 font-semibold w-fit text-primary-500 hover:bg-white transition-colors">
+      <NuxtLink to="/services">
+        <button class="bg-accent px-8 py-4 font-semibold w-fit text-primary-500 hover:bg-white transition-colors">
         Explore More
       </button>
+      </NuxtLink>
     </div>
-
-    <div>
-      <PackageTracker />
-    </div>
-
     <img src="~/assets/img/hero-img.jpg" class="w-full h-full object-cover absolute left-0 bottom-0 -z-10">
   </section>
 </template>

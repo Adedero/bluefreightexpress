@@ -5,12 +5,12 @@ import siteLinks from '~/data/site-links';
 <template>
   <footer class="bg-primary-500 py-10 px-4 md:px-24">
     <div>
-      <div class="flex items-center gap-2">
+      <NuxtLink to="/" class="flex items-center gap-2">
         <Logo />
         <p class="rubik text-2xl md:text-4xl font-bold text-white">
           Blue Freight Express
         </p>
-      </div>
+      </NuxtLink>
       <p class="mt-4 text-xs text-slate-300">
         To be the industry leader, globally recognized for effective & efficient solutions. To provide innovative solutions delivering quality, excellence and speed.
       </p>
