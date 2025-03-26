@@ -7,7 +7,8 @@ const errorMsg = ref<string>('')
   <div class="w-full px-4 lg:px-24 py-20 bg-surface">
     <div class="w-full h-full flex shadow-md">
       <input type="text" v-model="trackingNumber" placeholder="Enter Tracking Number" class="tracking-id-input flex-grow" />
-      <button class="tracking-btn" :disabled="!trackingNumber?.trim()">Track</button>
+      <MyButton text="Track" icon="lucide:package-search" :disabled="!trackingNumber?.trim()" />
+      <!-- <button class="tracking-btn" :disabled="!trackingNumber?.trim()">Track</button> -->
     </div>
     <small v-if="errorMsg" class="text-red-500 font-semibold">{{ errorMsg }}</small>
   </div>

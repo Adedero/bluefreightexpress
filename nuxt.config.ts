@@ -12,11 +12,11 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxt/icon',
-    '@vueuse/nuxt',
     //'@prisma/nuxt'
+    '@vueuse/nuxt',
   ],
   pages: true,
   runtimeConfig: {
     databaseUrl: '',
-  }
+  },
 })

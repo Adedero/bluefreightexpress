@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import 'vue3-carousel/carousel.css'
-import { Carousel, Slide, Pagination, Navigation, type CarouselConfig } from 'vue3-carousel'
+import { Carousel, Slide, Navigation, type CarouselConfig } from 'vue3-carousel'
 import testimonial_1 from '~/assets/img/testimonial-1.jpg'
 import testimonial_2 from '~/assets/img/testimonial-2.jpg'
 import testimonial_3 from '~/assets/img/testimonial-3.jpg'

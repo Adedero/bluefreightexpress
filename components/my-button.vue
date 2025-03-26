@@ -28,7 +28,7 @@ const buttonClass = computed(() => {
     }
   }
   return {
-    main: 'bg-primary-500 text-white disabled:bg-primary-300 disabled:text-white/80',
+    main: 'bg-primary-500 text-white disabled:bg-primary-400 disabled:text-white/80',
     before: 'before:bg-primary-400'
   }
 })
@@ -42,7 +42,7 @@ const buttonClass = computed(() => {
     :disabled="loading || disabled"
   >
     <slot>
-      <div class="w-full h-full flex items-center gap-3" :class="{ 'flex-row-reverse' : iconPos === 'left' }">
+      <div class="w-full h-full flex items-center gap-2" :class="{ 'flex-row-reverse' : iconPos === 'left' }">
         <span class="block">
           {{ text }}
         </span>
