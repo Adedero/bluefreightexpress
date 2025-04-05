@@ -12,11 +12,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxt/icon',
-    //'@prisma/nuxt'
     '@vueuse/nuxt',
   ],
   pages: true,
-  runtimeConfig: {
-    databaseUrl: '',
-  },
+  plugins: [
+    '~/plugins/mongodb.server'
+  ]
 })
