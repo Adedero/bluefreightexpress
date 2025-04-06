@@ -37,5 +37,7 @@ export type TOrder = {
     country: string
     description?: string
   },
-  estimatedDelivery: Date
+  estimatedDelivery: Date | string
+  createdAt: Date | string
+  updatedAt: Date | string
 }

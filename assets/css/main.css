@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+
 :root {
   --accent-color: #FFB82B;
   --primary-color-100: #ced0d9;

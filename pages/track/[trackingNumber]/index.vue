@@ -22,16 +22,31 @@ const computedTrackingUpdates = computed(() => {
             <Icon name="lucide:package-search" size="1.6rem" />
             <h4 class="rubik text-3xl font-bold">Shipment Tracking</h4>
           </div>
-          <div class="mt-3 flex items-center justify-between gap-x-4 flex-wrap">
-            <p class="flex gap-2 items-center">
-              <span>Tracking Number: </span>
-              <span class="font-semibold text-lg rubik">{{ order.trackingNumber }}</span>
-            </p>
+          
+          <div class="mt-3 grid items-start gap-x-2 gap-y-4 lg:grid-cols-2">
+            <div class="text-sm flex items-center gap-x-4 flex-wrap">
+              <div class="flex gap-1 items-center">
+                <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
+                <span class="text-slate-500">Shipping Date: </span>
+                <span class="font-semibold text-lg rubik">{{ useDateFormat(order.createdAt, 'MMM DD, YYYY') }}</span>
+              </div>
 
-            <p class="flex gap-2 items-center">
-              <span>Status: </span>
-              <span class="font-semibold text-lg rubik">{{ toTitleCase(order.status) }}</span>
-            </p>
+              <div class="flex gap-1 items-center">
+                <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
+                <span class="text-slate-500">Tracking Number: </span>
+                <span class="font-semibold text-lg rubik">{{ order.trackingNumber }}</span>
+              </div>
+
+              <div class="flex gap-1 items-center">
+                <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
+                <span class="text-slate-500">Order ID: </span>
+                <span class="font-semibold text-lg rubik">{{ order.orderId }}</span>
+              </div>
+            </div>
+            
+            <div>
+              <OrderStatusIndicator :status="order.status" :freight-mode="order.freightMode" />
+            </div>
           </div>
         </div>
 
@@ -97,6 +112,29 @@ const computedTrackingUpdates = computed(() => {
               <TrackerMap :updates="computedTrackingUpdates" />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div v-else>
+        <div class="pt-20 pb-8 px-4 lg:px-8 bg-surface">
+          <div class="flex items-center gap-1 text-primary-500">
+            <Icon name="lucide:package-search" size="1.6rem" />
+            <h4 class="rubik text-3xl font-bold">Shipment Tracking</h4>
+          </div>
+          <div class="mt-3 flex items-center justify-between gap-x-4 flex-wrap">
+            <p class="flex gap-2 items-center">
+              <span>Tracking Number: </span>
+              <span class="font-semibold text-lg rubik">{{ trackingNumber }}</span>
+            </p>
+
+            <p class="flex gap-2 items-center">
+              <span>Status: </span>
+              <span class="font-semibold text-lg rubik">Not Found</span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <PackageTracker />
         </div>
       </div>
     </NuxtLayout>

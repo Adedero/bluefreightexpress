@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import Accordion from '~/components/accordion/accordion.vue'
+import AccordionItem from '~/components/accordion/accordion-item.vue'
+</script>
+
 <template>
   <section id="faqs" class="pb-20 px-4 md:px-24">
     <div>
