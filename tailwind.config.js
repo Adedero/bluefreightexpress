@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
   theme: {
     extend: {
       colors: {
@@ -15,12 +14,15 @@ export default {
           800: "#04071a",
           900: "#02040d"
         },
-        accent: '#FFB82B',
-        surface: '#F3F3F3',
-        textColor: '#1C1F35'
+        accent: "#FFB82B",
+        surface: "#F3F3F3",
+        textColor: "#1C1F35"
       }
     },
-  },
-  plugins: [],
+    fontFamily: {
+      rubik: ["Rubik", "sans-serif"],
+      krub: ["Krub", "sans-serif"]
+    }
+  }
 }
 

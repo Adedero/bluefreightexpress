@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose'
+import { Model, Schema } from 'mongoose'
 import { hash } from 'argon2'
 import { defineModel } from '~/server/lib/db'
 
@@ -6,12 +6,13 @@ import type { TUser } from '~/definitions'
 
 const UserSchema = new Schema<TUser>(
   {
-    name: { type: String },
+    name: { type: String, required: true },
     email: { type: String, unique: true },
-    password: { type: String, select: false }
+    password: { type: String, select: false },
+    role: { type: String, enum: ['USER', 'ADMIN'], default: 'USER' }
   },
   {
-    timestamps: true
+    timestamps: true  
   }
 )
 

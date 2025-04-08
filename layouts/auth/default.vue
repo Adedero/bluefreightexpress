@@ -1,5 +1,5 @@
 <template>
-  <div class="rubik w-screen h-screen">
+  <div class="w-screen h-screen">
     <div class="w-full h-full grid md:grid-cols-5 lg:grid-cols-2 md:p-2">
       <div class="hidden relative z-[1] rounded-md md:col-span-2 lg:col-span-1 overflow-hidden md:flex flex-col justify-between">
         <header class="flex items-center gap-4 justify-between text-white p-4">

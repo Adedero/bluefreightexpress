@@ -58,16 +58,6 @@ const carouselConfig: Partial<CarouselConfig> = {
       <h3 class="rubik text-4xl font-bold mt-5">
         Safe & Reliable Cargo Solutions
       </h3>
-
-      <!-- <div class="hidden lg:flex items-center gap-6">
-        <button class="rounded-full aspect-square bg-accent hover:bg-primary-500 transition-colors text-primary-500 hover:text-accent p-3">
-          <Icon name="lucide:arrow-left" size="1.5rem" />
-        </button>
-
-        <button class="rounded-full aspect-square bg-accent hover:bg-primary-500 transition-colors text-primary-500 hover:text-accent p-3">
-          <Icon name="lucide:arrow-right" size="1.5rem" />
-        </button>
-      </div> -->
     </div>
 
     <Carousel v-bind="carouselConfig" class="mt-16">
@@ -101,17 +91,6 @@ const carouselConfig: Partial<CarouselConfig> = {
         <Navigation />
       </template>
     </Carousel>
-
-
-    <!-- <div class="mt-5 flex items-center justify-center gap-10 lg:hidden">
-      <button class="rounded-full aspect-square bg-accent hover:bg-primary-500 transition-colors text-primary-500 hover:text-accent p-3">
-        <Icon name="lucide:arrow-left" size="1.5rem" />
-      </button>
-
-      <button class="rounded-full aspect-square bg-accent hover:bg-primary-500 transition-colors text-primary-500 hover:text-accent p-3">
-        <Icon name="lucide:arrow-right" size="1.5rem" />
-      </button>
-    </div> -->
   </section>
 </template>
 

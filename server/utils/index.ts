@@ -71,3 +71,16 @@ export function randomString(lengthOrPattern?: number | string, type?: StringTyp
     return getUnbiasedRandomChar(charset)
   })
 }
+
+/* 
+export function handleApiError(error: unknown | Error) {
+  let message: string = ''
+  if (error instanceOf Error) {
+    message = error.message
+  } else if (typeof error === 'string') {
+    message = error
+  } else {
+    message = error.toString()
+  }
+
+} */

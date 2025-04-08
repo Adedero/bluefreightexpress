@@ -9,6 +9,7 @@ interface Props {
   type?: ButtonHTMLAttributes['type']
   icon?: string,
   iconPos?: 'left' | 'right'
+  size?: 'small' | 'normal' | 'large'
 }
 const { 
   text,
@@ -17,7 +18,8 @@ const {
   disabled = false,
   type,
   icon,
-  iconPos = 'right'
+  iconPos = 'right',
+  size = 'normal'
 } = defineProps<Props>()
 
 const buttonClass = computed(() => {
@@ -33,6 +35,16 @@ const buttonClass = computed(() => {
   }
 })
 
+const buttonSize = computed(() => {
+  if (size === 'small') {
+    return '0.75rem 1rem'
+  }
+  if (size === 'large') {
+    return '1.5rem 2.5rem'
+  }
+  return '1rem 1.75rem'
+})
+
 </script>
 
 <template>
@@ -42,7 +54,7 @@ const buttonClass = computed(() => {
     :disabled="loading || disabled"
   >
     <slot>
-      <div class="w-full h-full flex items-center gap-2" :class="{ 'flex-row-reverse' : iconPos === 'left' }">
+      <div class="w-full h-full flex justify-center items-center gap-2" :class="{ 'flex-row-reverse' : iconPos === 'left' }">
         <span class="block">
           {{ text }}
         </span>
@@ -57,7 +69,7 @@ const buttonClass = computed(() => {
 
 <style scoped>
 .my-button {
-  padding: 1rem 1.75rem;
+  padding: v-bind(buttonSize);
   font-weight: 600;
   position: relative;
   overflow: hidden;
