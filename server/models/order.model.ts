@@ -28,12 +28,15 @@ const OrderSchema = new mongoose.Schema<TOrder>(
       status: { type: String, enum: ['processing', 'shipped', 'in transit', 'delivered', 'cancelled'], default: 'processing' },
       severity: { type: String, enum: ['info', 'success', 'error'], default: 'info' },
       comment: { type: String, required: true  },
-      location: { type: String },
-      coordinates: { 
-        type: {
-          lat: { type: Number, required: true },
-          lng: { type: Number, required: true }
-        },
+      location: { 
+        name: { type: String },
+        address: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        country: { type: String, required: true },
+        countryCode: { type: String, required: true },
+        lat: { type: Number, required: true },
+        lng: { type: Number, required: true },
       },
       timestamp: { type: Date, default: Date.now }
     }],
@@ -43,6 +46,9 @@ const OrderSchema = new mongoose.Schema<TOrder>(
       city: { type: String, required: true },
       state: { type: String, required: true },
       country: { type: String, required: true },
+      countryCode: { type: String, required: true },
+      lat: { type: Number, required: true },
+      lng: { type: Number, required: true },
       description: { type: String }
     },
     estimatedDelivery: { type: Date },

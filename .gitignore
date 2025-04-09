@@ -27,3 +27,4 @@ logs
 prisma/migrations/migration_lock.toml
 
 .rest
+todo.md

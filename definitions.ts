@@ -8,7 +8,7 @@ export type TUser = {
 }
 
 export type TOrder = {
-  user: ObjectId | Collection<TUser>
+  user: ObjectId | TUser
   orderId: string
   trackingNumber: string
   freightMode: 'air' | 'ocean' | 'road'
@@ -26,8 +26,16 @@ export type TOrder = {
     status: 'processing' | 'shipped' | 'in transit' | 'delivered' | 'cancelled'
     severity: 'info' | 'success' | 'error'
     comment: string
-    location?: string
-    coordinates?: { lat: number; lng: number }
+    location: {
+      name?: string
+      address: string
+      city: string
+      state: string
+      country: string
+      countryCode: string
+      lat: number
+      lng: number
+    }
     timestamp: Date
   }[]
   destination: {
@@ -36,7 +44,10 @@ export type TOrder = {
     city: string
     state: string
     country: string
+    countryCode: string
     description?: string
+    lat: number
+    lng: number
   },
   estimatedDelivery: Date | string
   createdAt: Date | string

@@ -1,10 +1,12 @@
 import type { FetchError } from 'ofetch'
 import type { ToastServiceMethods } from "primevue";
 
-export default function useErrorToast(error: FetchError, toast: ToastServiceMethods) {
+export default function useErrorToast(error: FetchError | Error | unknown, toast: ToastServiceMethods) {
   toast.add({
     severity: 'error',
-    summary: error.name,
-    detail: error.statusMessage
+    //@ts-expect-error
+    summary: error.name || 'Error',
+    //@ts-expect-error
+    detail: error.statusMessage || error.message || error
   })
 }

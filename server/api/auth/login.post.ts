@@ -29,12 +29,13 @@ export default defineEventHandler(async (event) => {
       statusMessage: "Invalid email or password"
     })
   }
-
   await setUserSession(event, {
     user: {
       name: user.name,
       email: user.email
     }
+  }, {
+    maxAge: 60 * 60 * 4 //4 hours
   })
   return {}
 })

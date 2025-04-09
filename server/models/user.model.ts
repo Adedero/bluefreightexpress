@@ -7,7 +7,7 @@ import type { TUser } from '~/definitions'
 const UserSchema = new Schema<TUser>(
   {
     name: { type: String, required: true },
-    email: { type: String, unique: true },
+    email: { type: String, unique: true, required: true },
     password: { type: String, select: false },
     role: { type: String, enum: ['USER', 'ADMIN'], default: 'USER' }
   },

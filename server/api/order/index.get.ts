@@ -1,7 +1,9 @@
 import Order from "~/server/models/order.model"
 
 export default defineEventHandler(async (event) => {
-  const { limit = 20, page = 1 } = getQuery(event)
+  await requireUserSession(event)
+  
+  const { limit = 20, page = 0 } = getQuery(event)
 
   const orders = await Order
     .find()
@@ -10,6 +12,5 @@ export default defineEventHandler(async (event) => {
     .limit(Number(limit))
     .skip(Number(page) * Number(limit))
     .lean()
-
   return orders
 })
