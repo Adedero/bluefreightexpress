@@ -81,7 +81,7 @@ const createOrder = async () => {
   }))
   loading.value = true
   try {
-    const data = await $fetch('/api/order', {
+    const data = await $fetch('/api/orders', {
       method: 'POST',
       body: order
     })

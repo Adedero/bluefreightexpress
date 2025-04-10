@@ -8,9 +8,9 @@ definePageMeta({
 
 const page = ref<number>(0)
 
-const { data: count } = await useFetch<number>('/api/order/count')
+const { data: count } = await useFetch<number>('/api/orders/count')
 
-const { data: orders } = await useFetch('/api/order', { query: { page: page.value }, watch: [page] })
+const { data: orders } = await useFetch('/api/orders', { query: { page: page.value }, watch: [page] })
 
 
 const onRowClick = async (event: DataTableRowClickEvent) => {

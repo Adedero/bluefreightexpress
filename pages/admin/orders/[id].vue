@@ -15,7 +15,7 @@ const { id } = route.params
 const toast = useToast()
 const confirm = useConfirm()
 
-const { data: order } = await useFetch<TOrder>(`/api/order/${id.toString()}`)
+const { data: order } = await useFetch<TOrder>(`/api/orders/${id.toString()}`)
 
 if (!order.value) {
   throw createError({
@@ -36,7 +36,7 @@ const loading = ref<boolean>(false)
 const updateOrder = async () => {
   loading.value = true
   try {
-    const data = await $fetch(`/api/order/${id.toString()}`, {
+    const data = await $fetch(`/api/orders/${id.toString()}`, {
       method: 'PUT',
       body: updatedOrder.value
     })
@@ -66,7 +66,7 @@ const isDeleting = ref<boolean>(false)
 const deleteOrder = async () => {
   isDeleting.value = true
   try {
-    await $fetch(`/api/order/${id.toString()}`, { method: 'DELETE' })
+    await $fetch(`/api/orders/${id.toString()}`, { method: 'DELETE' })
     toast.add({
       severity: 'success',
       summary: 'Order deleted',

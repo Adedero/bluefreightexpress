@@ -3,7 +3,7 @@ import type { TOrder, TUser } from '~/definitions';
 
 const { trackingNumber } = useRoute().params
 
-const { data: order } = await useFetch<TOrder>(`/api/order/track/${trackingNumber}`)
+const { data: order } = await useFetch<TOrder>(`/api/orders/track/${trackingNumber}`)
 
 const computedTrackingUpdates = computed(() => {
   if (!order.value) return []
