@@ -13,6 +13,7 @@ const route = useRoute()
 const { id } = route.params
 
 const toast = useToast()
+const confirm = useConfirm()
 
 const { data: order } = await useFetch<TOrder>(`/api/order/${id.toString()}`)
 
@@ -58,25 +59,52 @@ const updateOrder = async () => {
     loading.value = false
   }
 }
-//Extra options menu
-const op = useTemplateRef('op')
-const toggle = (event: Event) => op.value?.toggle(event)
-
-//Mark as done
-const confirmMarkAsDone = () => {
-  
-}
-const markAsDone = async () => {
-
-}
 
 //Delete 
-const confirmDelete = () => {
+const isDeleting = ref<boolean>(false)
 
-}
 const deleteOrder = async () => {
-
+  isDeleting.value = true
+  try {
+    await $fetch(`/api/order/${id.toString()}`, { method: 'DELETE' })
+    toast.add({
+      severity: 'success',
+      summary: 'Order deleted',
+      detail: 'The order has been successfully deleted',
+      life: 3000
+    })
+    setTimeout(() => {
+      navigateTo('/admin')
+    }, 3000)
+  } catch (err) {
+    useErrorToast(err, toast)
+  } finally {
+    isDeleting.value = false
+  }
 }
+
+const confirmDelete = () => {
+  confirm.require({
+    header: `Delete order ${order.value!.orderId}`,
+    message: 'Are you sure you want to proceed?',
+    icon: 'pi pi-exclamation-triangle',
+    rejectProps: {
+        label: 'Cancel',
+        severity: 'secondary',
+        outlined: true,
+        icon: 'pi pi-times-circle'
+    },
+    acceptProps: {
+      label: 'Delete',
+      severity: 'danger',
+      icon: 'pi pi-trash'
+    },
+    accept: () => {
+      deleteOrder()
+    }
+  })
+}
+
 
 const onLocationPicked = (obj: Record<string, any>, field: string, location: PickedLocation) => {
   obj[field] = {
@@ -228,18 +256,24 @@ const copyTrackingNumber = async () => {
   <div class="w-dvw p-4 pb-10">
     <div v-if="order">
       <header class="border rounded-xl shadow-sm px-2 py-2 flex items-center justify-between gap-2">
-      <h1 class="font-rubik text-xl font-bold text-[--p-primary-color]">
-        Order ({{ order.status }}) {{ order.orderId }}
-      </h1>
-      
-        <PrimeButton @click="toggle" label="More" icon="pi pi-ellipsis-v" size="small" outlined />
-        <PrimePopover ref="op">
-          <div class="flex flex-col gap-2">
-            <PrimeButton label="Mark as done" icon="pi pi-check-circle" icon-pos="right" outlined fluid @click="markAsDone" />
+        <h1 class="font-rubik text-xl font-bold text-[--p-primary-color]">
+          Order ({{ order.status }}) {{ order.orderId }}
+        </h1>
 
-            <PrimeButton label="Delete" icon="pi pi-trash" icon-pos="right" severity="danger" fluid @click="confirmDelete" />
-          </div>
-        </PrimePopover>
+        <div class="flex items-center gap-2">
+          <NuxtLink to="/admin">
+            <PrimeButton label="Back" icon="pi pi-arrow-left" size="small" severity="secondary" />
+          </NuxtLink>
+
+          <PrimeButton
+            :loading="isDeleting"
+            icon="pi pi-trash"
+            icon-pos="right"
+            severity="danger"
+            size="small"
+            @click="confirmDelete()"
+          />
+        </div>
       </header>
 
       <div class="mt-4">
