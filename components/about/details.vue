@@ -2,7 +2,7 @@
 const details = [
   {
     title: 'Who We Are',
-    content: 'Blue Freight Express is a trusted logistics partner, specializing in seamless global shipping, freight forwarding, and supply chain solutions.',
+    content: 'Next Port Express is a trusted logistics partner, specializing in seamless global shipping, freight forwarding, and supply chain solutions.',
     icon: 'lucide:building'
   },
   {
@@ -22,7 +22,7 @@ const details = [
   },
   {
     title: 'Our Values',
-    content: 'Integrity, reliability, innovation, and customer commitment drive everything we do at Blue Freight Express.',
+    content: 'Integrity, reliability, innovation, and customer commitment drive everything we do at Next Port Express.',
     icon: 'lucide:heart'
   },
   {

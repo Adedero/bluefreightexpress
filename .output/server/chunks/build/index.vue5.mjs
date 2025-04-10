@@ -8,10 +8,12 @@ import { _ as __nuxt_component_2$1 } from './package-tracker.vue.mjs';
 import __nuxt_component_0$1 from './index2117.mjs';
 import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import { _ as _imports_0$2 } from './harbour-2.jpg.mjs';
+import { u as useHead } from './v3.mjs';
 import { s as services, c as contract_logistics, w as warehouse_and_distribution, a as specialized_transport } from './services.mjs';
 import { _ as __nuxt_component_2 } from './my-button.vue.mjs';
-import { A as Accordion, a as AccordionItem } from './accordion-item.vue.mjs';
+import { h as homePageFaqs, A as Accordion, b as AccordionItem } from './faq.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -119,8 +121,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
@@ -132,20 +132,19 @@ import 'mongoose';
 import '@primeuix/utils/uuid';
 import '@primeuix/utils/zindex';
 import '@iconify/utils/lib/css/icon';
-import './v3.mjs';
+import './asyncData.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'unhead/utils';
 import 'devalue';
 import 'unhead/plugins';
-import './asyncData.mjs';
 import './plane-2.jpg.mjs';
 
 const _imports_0$1 = "" + __buildAssetsURL("hero-img.DVYsMQ7Y.jpg");
 
 const _sfc_main$5 = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_SubtitleText = _sfc_main$6;
   const _component_NuxtLink = __nuxt_component_0;
   _push(`<section${ssrRenderAttrs(mergeProps({
@@ -156,7 +155,7 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
     text: "Logistics & Supply Chain Solutions",
     dark: ""
   }, null, _parent));
-  _push(`<h1 aos data-aos="slide-up" class="rubik text-4xl md:text-6xl font-bold text-white text-balance"> Safest Logistics <br class="hidden md:inline"> Solutions Provider <br class="hidden md:inline"> With Integrity </h1><p class="font-medium max-w-[36rem]"> We&#39;re a leading provider of less-than-truckload freight transportation with the world-class network, technology and service our customers need at all the time. </p>`);
+  _push(`<h1 class="rubik text-4xl md:text-6xl font-bold text-white text-balance"> Safest Logistics <br class="hidden md:inline"> Solutions Provider <br class="hidden md:inline"> With Integrity </h1><p class="font-medium max-w-[36rem]"> We&#39;re a leading provider of less-than-truckload freight transportation with the world-class network, technology and service our customers need at all the time. </p>`);
   _push(ssrRenderComponent(_component_NuxtLink, { to: "/services" }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -177,7 +176,7 @@ _sfc_main$5.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/home/hero.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender$1]]);
+const __nuxt_component_1 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["ssrRender", _sfc_ssrRender]]);
 
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "services",
@@ -305,25 +304,25 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       {
         name: "Elena Fischer",
         job: "Freight Forwarder, Zurich",
-        message: "Blue Freight Express has been an absolute game-changer for our supply chain. Their efficiency and real-time tracking make international shipping seamless!",
+        message: "Next Port Express has been an absolute game-changer for our supply chain. Their efficiency and real-time tracking make international shipping seamless!",
         image: testimonial_1
       },
       {
         name: "Lukas Meier",
         job: "Operations Manager, Munich",
-        message: "Reliability is key in logistics, and Blue Freight Express delivers every time. Their professionalism and on-time delivery are unmatched.",
+        message: "Reliability is key in logistics, and Next Port Express delivers every time. Their professionalism and on-time delivery are unmatched.",
         image: testimonial_2
       },
       {
         name: "Matteo Rossi",
         job: "Warehouse Supervisor, Milan",
-        message: "Our business depends on fast and secure shipping, and Blue Freight Express never lets us down. Highly recommended for European freight!",
+        message: "Our business depends on fast and secure shipping, and Next Port Express never lets us down. Highly recommended for European freight!",
         image: testimonial_3
       },
       {
         name: "Sophie Dubois",
         job: "E-commerce Manager, Geneva",
-        message: "The customer support and seamless freight solutions from Blue Freight Express have helped our online store grow exponentially!",
+        message: "The customer support and seamless freight solutions from Next Port Express have helped our online store grow exponentially!",
         image: testimonial_4
       }
     ];
@@ -349,9 +348,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       _push(`<section${ssrRenderAttrs(mergeProps({
         id: "testimonials",
         class: "bg-white px-4 lg:px-24 py-20"
-      }, _attrs))} data-v-2df97f24>`);
+      }, _attrs))} data-v-43ef5aff>`);
       _push(ssrRenderComponent(_component_SubtitleText, { text: "Testimonials" }, null, _parent));
-      _push(`<div class="flex items-center justify-between" data-v-2df97f24><h3 class="rubik text-4xl font-bold mt-5" data-v-2df97f24> Safe &amp; Reliable Cargo Solutions </h3></div>`);
+      _push(`<div class="flex items-center justify-between" data-v-43ef5aff><h3 class="rubik text-4xl font-bold mt-5" data-v-43ef5aff> Safe &amp; Reliable Cargo Solutions </h3></div>`);
       _push(ssrRenderComponent(unref(Carousel), mergeProps(carouselConfig, { class: "mt-16" }), {
         addons: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -371,12 +370,12 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
               }, {
                 default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                   if (_push3) {
-                    _push3(`<div class="carousel__item px-10 py-8" data-v-2df97f24${_scopeId2}><header class="flex items-center justify-between gap-4" data-v-2df97f24${_scopeId2}><div class="flex items-center gap-3 flex-wrap" data-v-2df97f24${_scopeId2}><img${ssrRenderAttr("src", t.image)} class="w-20 md:w-24 aspect-square rounded-full object-cover" data-v-2df97f24${_scopeId2}><div class="rubik" data-v-2df97f24${_scopeId2}><p class="text-lg md:text-xl font-medium" data-v-2df97f24${_scopeId2}>${ssrInterpolate(t.name)}</p><p data-v-2df97f24${_scopeId2}>${ssrInterpolate(t.job)}</p></div></div><div class="hidden w-16 aspect-square rounded-full bg-gradient-to-r from-accent to-amber-300 text-primary md:grid place-content-center" data-v-2df97f24${_scopeId2}>`);
+                    _push3(`<div class="carousel__item px-10 py-8" data-v-43ef5aff${_scopeId2}><header class="flex items-center justify-between gap-4" data-v-43ef5aff${_scopeId2}><div class="flex items-center gap-3 flex-wrap" data-v-43ef5aff${_scopeId2}><img${ssrRenderAttr("src", t.image)} class="w-20 md:w-24 aspect-square rounded-full object-cover" data-v-43ef5aff${_scopeId2}><div class="rubik" data-v-43ef5aff${_scopeId2}><p class="text-lg md:text-xl font-medium" data-v-43ef5aff${_scopeId2}>${ssrInterpolate(t.name)}</p><p data-v-43ef5aff${_scopeId2}>${ssrInterpolate(t.job)}</p></div></div><div class="hidden w-16 aspect-square rounded-full bg-gradient-to-r from-accent to-amber-300 text-primary md:grid place-content-center" data-v-43ef5aff${_scopeId2}>`);
                     _push3(ssrRenderComponent(_component_Icon, {
                       name: "my-icon:quote",
                       size: "1.3rem"
                     }, null, _parent3, _scopeId2));
-                    _push3(`</div></header><div class="mt-5" data-v-2df97f24${_scopeId2}><p class="message" data-v-2df97f24${_scopeId2}>${ssrInterpolate(t.message)}</p></div><footer class="mt-8 text-accent flex items-center gap-2" data-v-2df97f24${_scopeId2}><!--[-->`);
+                    _push3(`</div></header><div class="mt-5" data-v-43ef5aff${_scopeId2}><p class="message" data-v-43ef5aff${_scopeId2}>${ssrInterpolate(t.message)}</p></div><footer class="mt-8 text-accent flex items-center gap-2" data-v-43ef5aff${_scopeId2}><!--[-->`);
                     ssrRenderList(5, (i) => {
                       _push3(ssrRenderComponent(_component_Icon, {
                         key: i,
@@ -485,7 +484,7 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/home/testimonials.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const __nuxt_component_5 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2df97f24"]]);
+const __nuxt_component_5 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-43ef5aff"]]);
 
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "faq",
@@ -501,28 +500,28 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       }, _attrs))}><div>`);
       _push(ssrRenderComponent(_component_SubtitleText, { text: "Frequently Asked Questions" }, null, _parent));
       _push(`<h3 class="rubik text-4xl font-bold mt-5"> FAQ </h3></div><div class="my-10 grid md:grid-cols-2 gap-x-6 gap-y-4"><!--[-->`);
-      ssrRenderList(2, (i) => {
+      ssrRenderList([unref(homePageFaqs).slice(0, 3), unref(homePageFaqs).slice(3)], (faqs) => {
         _push(ssrRenderComponent(Accordion, null, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
               _push2(`<!--[-->`);
-              ssrRenderList(3, (i2) => {
+              ssrRenderList(faqs, (faq) => {
                 _push2(ssrRenderComponent(AccordionItem, {
-                  name: i2.toString(),
-                  title: "Why are shipping rates so volatile",
-                  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus est, voluptas non sapiente nesciunt nulla enim quia nisi amet ex deserunt impedit maxime fugit consectetur dolorem adipisci aspernatur doloribus!"
+                  name: faq.q,
+                  title: faq.q,
+                  description: faq.a
                 }, null, _parent2, _scopeId));
               });
               _push2(`<!--]-->`);
             } else {
               return [
-                (openBlock(), createBlock(Fragment, null, renderList(3, (i2) => {
-                  return createVNode(AccordionItem, {
-                    name: i2.toString(),
-                    title: "Why are shipping rates so volatile",
-                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus est, voluptas non sapiente nesciunt nulla enim quia nisi amet ex deserunt impedit maxime fugit consectetur dolorem adipisci aspernatur doloribus!"
-                  }, null, 8, ["name"]);
-                }), 64))
+                (openBlock(true), createBlock(Fragment, null, renderList(faqs, (faq) => {
+                  return openBlock(), createBlock(AccordionItem, {
+                    name: faq.q,
+                    title: faq.q,
+                    description: faq.a
+                  }, null, 8, ["name", "title", "description"]);
+                }), 256))
               ];
             }
           }),
@@ -550,55 +549,63 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLayout = __nuxt_component_0$2;
-  const _component_HomeHero = __nuxt_component_1;
-  const _component_PackageTracker = __nuxt_component_2$1;
-  const _component_HomeServices = _sfc_main$4;
-  const _component_HomeWhyUs = _sfc_main$3;
-  const _component_HomeTestimonials = __nuxt_component_5;
-  const _component_Affiliates = _sfc_main$7;
-  const _component_HomeFaq = _sfc_main$1;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
-  _push(ssrRenderComponent(_component_NuxtLayout, { name: "main-default" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(ssrRenderComponent(_component_HomeHero, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_PackageTracker, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_HomeServices, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_HomeWhyUs, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_HomeTestimonials, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_Affiliates, null, null, _parent2, _scopeId));
-        _push2(ssrRenderComponent(_component_HomeFaq, null, null, _parent2, _scopeId));
-        _push2(`<img${ssrRenderAttr("src", _imports_0$2)} class="w-dvw"${_scopeId}>`);
-      } else {
-        return [
-          createVNode(_component_HomeHero),
-          createVNode(_component_PackageTracker),
-          createVNode(_component_HomeServices),
-          createVNode(_component_HomeWhyUs),
-          createVNode(_component_HomeTestimonials),
-          createVNode(_component_Affiliates),
-          createVNode(_component_HomeFaq),
-          createVNode("img", {
-            src: _imports_0$2,
-            class: "w-dvw"
-          })
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div>`);
-}
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useHead({
+      title: "Home"
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLayout = __nuxt_component_0$2;
+      const _component_HomeHero = __nuxt_component_1;
+      const _component_PackageTracker = __nuxt_component_2$1;
+      const _component_HomeServices = _sfc_main$4;
+      const _component_HomeWhyUs = _sfc_main$3;
+      const _component_HomeTestimonials = __nuxt_component_5;
+      const _component_Affiliates = _sfc_main$7;
+      const _component_HomeFaq = _sfc_main$1;
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      _push(ssrRenderComponent(_component_NuxtLayout, { name: "main-default" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_HomeHero, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_PackageTracker, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_HomeServices, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_HomeWhyUs, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_HomeTestimonials, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_Affiliates, null, null, _parent2, _scopeId));
+            _push2(ssrRenderComponent(_component_HomeFaq, null, null, _parent2, _scopeId));
+            _push2(`<img${ssrRenderAttr("src", _imports_0$2)} class="w-dvw"${_scopeId}>`);
+          } else {
+            return [
+              createVNode(_component_HomeHero),
+              createVNode(_component_PackageTracker),
+              createVNode(_component_HomeServices),
+              createVNode(_component_HomeWhyUs),
+              createVNode(_component_HomeTestimonials),
+              createVNode(_component_Affiliates),
+              createVNode(_component_HomeFaq),
+              createVNode("img", {
+                src: _imports_0$2,
+                class: "w-dvw"
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div>`);
+    };
+  }
+});
+
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue5.mjs.map

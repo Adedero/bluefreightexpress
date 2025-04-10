@@ -4,8 +4,8 @@
       <NuxtLink to="/" class="flex items-center gap-2">
         <Logo />
         <h1 class="text-3xl font-bold rubik">
-          <span class="md:hidden">BFE</span>
-          <span class="hidden md:inline text-4xl">Blue Freight Express</span>
+          <span class="md:hidden">NPE</span>
+          <span class="hidden md:inline text-4xl">Next Port Express</span>
         </h1>
       </NuxtLink>
       <div class="w-full flex justify-end">

@@ -2,6 +2,7 @@ import { c as defineEventHandler, r as readValidatedBody, e as createError, f as
 import { U as User } from '../../../_/user.model.mjs';
 import { z } from 'zod';
 import { verify } from 'argon2';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -109,8 +110,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'mongoose';
 import '../../../_/db.mjs';
@@ -126,7 +125,10 @@ const login_post = defineEventHandler(async (event) => {
     const firstError = result.error.errors[0];
     throw createError({
       statusCode: 400,
-      statusMessage: firstError.message
+      statusMessage: firstError.message,
+      data: {
+        statusMessage: firstError.message
+      }
     });
   }
   const { email, password } = result.data;
@@ -134,13 +136,19 @@ const login_post = defineEventHandler(async (event) => {
   if (!user) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Invalid email or password"
+      statusMessage: "Invalid email or password",
+      data: {
+        statusMessage: "Invalid email or password"
+      }
     });
   }
   if (!await verify(user.password, password)) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Invalid email or password"
+      statusMessage: "Invalid email or password",
+      data: {
+        statusMessage: "Invalid email or password"
+      }
     });
   }
   await setUserSession(event, {

@@ -1,5 +1,5 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { l as buildAssetsURL, u as useRuntimeConfig, m as getResponseStatusText, n as getResponseStatus, o as defineRenderHandler, p as publicAssetsURL, j as getQuery, e as createError, q as getRouteRules, b as useNitroApp } from '../_/nitro.mjs';
+import { m as buildAssetsURL, u as useRuntimeConfig, n as getResponseStatusText, o as getResponseStatus, p as defineRenderHandler, q as publicAssetsURL, k as getQuery, e as createError, v as getRouteRules, b as useNitroApp } from '../_/nitro.mjs';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { walkResolver } from 'unhead/utils';
 import { toValue, isRef, hasInjectionContext, inject, ref, watchEffect, getCurrentInstance, onBeforeUnmount, onDeactivated, onActivated } from 'vue';
@@ -72,7 +72,7 @@ function createHead(options = {}) {
   return head;
 }
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"}],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"description","content":"Next Port Express offers fast and reliable shipping services for your logistics needs. Get your products delivered safely and on time."},{"name":"keywords","content":"shipping, logistics, fast shipping, reliable shipping, next port, express delivery, international shipping"},{"name":"author","content":"Next Port Express"}],"link":[{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"}],"style":[],"script":[],"noscript":[]};
 
 const appRootTag = "div";
 

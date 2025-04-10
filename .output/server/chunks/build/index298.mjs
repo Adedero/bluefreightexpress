@@ -8,6 +8,7 @@ import { B as BaseStyle, R as Ripple, s as script$6, y as script$7 } from './ser
 import { style } from '@primeuix/styles/carousel';
 import { resolveComponent, createElementBlock, openBlock, mergeProps, createCommentVNode, renderSlot, createElementVNode, createBlock, withCtx, resolveDynamicComponent, Fragment, renderList, createTextVNode, toDisplayString } from 'vue';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -113,8 +114,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

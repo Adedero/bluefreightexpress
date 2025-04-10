@@ -9,7 +9,10 @@ export default defineEventHandler(async (event) => {
     const firstError = result.error.errors[0]
     throw createError({
       statusCode: 400,
-      statusMessage: firstError.message
+      statusMessage: firstError.message,
+      data: {
+        statusMessage: firstError.message
+      }
     })
   }
 
@@ -19,14 +22,20 @@ export default defineEventHandler(async (event) => {
   if (!user) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Invalid email or password"
+      statusMessage: "Invalid email or password",
+      data: {
+        statusMessage: "Invalid email or password"
+      }
     })
   }
 
   if (!(await verify(user.password as string, password))) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Invalid email or password"
+      statusMessage: "Invalid email or password",
+      data: {
+        statusMessage: "Invalid email or password"
+      }
     })
   }
   await setUserSession(event, {

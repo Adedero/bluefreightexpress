@@ -1,7 +1,8 @@
-import { B as BaseStyle, y as script$2, E as script$3, L as script$4, w as script$5, M as script$6 } from './server.mjs';
+import { B as BaseStyle, y as script$2, E as script$3, L as script$4, v as script$5, M as script$6 } from './server.mjs';
 import { style } from '@primeuix/styles/inlinemessage';
 import { createElementBlock, openBlock, mergeProps, renderSlot, createCommentVNode, createBlock, resolveDynamicComponent } from 'vue';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -108,8 +109,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

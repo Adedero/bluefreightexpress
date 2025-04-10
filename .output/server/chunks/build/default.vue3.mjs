@@ -1,13 +1,15 @@
 import { _ as __nuxt_component_0$1 } from './nuxt-link.mjs';
-import { _ as __nuxt_component_1 } from './logo.vue.mjs';
 import { withCtx, createVNode, useSSRContext, defineComponent, ref, createTextVNode, toDisplayString, unref, createBlock, createCommentVNode, openBlock, computed, toValue, useTemplateRef, mergeProps } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrInterpolate, ssrRenderClass, ssrRenderList, ssrRenderSlot } from 'vue/server-renderer';
 import { _ as _imports_0 } from './harbour.jpg.mjs';
 import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
+import { _ as _sfc_main$6 } from './logo.vue2.mjs';
 import __nuxt_component_0$2 from './index2117.mjs';
 import { n as noop, t as toArray, w as watchImmediate, a as tryOnScopeDispose, i as isObject } from './index16.mjs';
 import { _ as __nuxt_component_2$1 } from './my-button.vue.mjs';
+import { s as site } from './index.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -115,8 +117,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import './server.mjs';
 import 'vue-router';
@@ -141,7 +141,7 @@ import './asyncData.mjs';
 const _sfc_main$5 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLink = __nuxt_component_0$1;
-  const _component_Logo = __nuxt_component_1;
+  const _component_Logo = _sfc_main$6;
   _push(`<header${ssrRenderAttrs(_attrs)}><div class="bg-gradient-to-r from-primary-500 to-primary-500/70 text-white px-4 lg:px-24 py-4 md:py-8 top-0 flex flex-wrap items-center relative h-36 overflow-hidden">`);
   _push(ssrRenderComponent(_component_NuxtLink, {
     to: "/",
@@ -150,13 +150,13 @@ function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
         _push2(ssrRenderComponent(_component_Logo, null, null, _parent2, _scopeId));
-        _push2(`<h1 class="text-3xl font-bold rubik"${_scopeId}><span class="md:hidden"${_scopeId}>BFE</span><span class="hidden md:inline text-4xl"${_scopeId}>Blue Freight Express</span></h1>`);
+        _push2(`<h1 class="text-3xl font-bold rubik"${_scopeId}><span class="md:hidden"${_scopeId}>NPE</span><span class="hidden md:inline text-4xl"${_scopeId}>Next Port Express</span></h1>`);
       } else {
         return [
           createVNode(_component_Logo),
           createVNode("h1", { class: "text-3xl font-bold rubik" }, [
-            createVNode("span", { class: "md:hidden" }, "BFE"),
-            createVNode("span", { class: "hidden md:inline text-4xl" }, "Blue Freight Express")
+            createVNode("span", { class: "md:hidden" }, "NPE"),
+            createVNode("span", { class: "hidden md:inline text-4xl" }, "Next Port Express")
           ])
         ];
       }
@@ -495,7 +495,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$1;
-      const _component_Logo = __nuxt_component_1;
+      const _component_Logo = _sfc_main$6;
       const _component_MainNavLinkItem = __nuxt_component_2;
       const _component_Icon = __nuxt_component_0$2;
       _push(`<nav${ssrRenderAttrs(mergeProps({
@@ -584,7 +584,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       var _a;
       const _component_NuxtLink = __nuxt_component_0$1;
-      const _component_Logo = __nuxt_component_1;
+      const _component_Logo = _sfc_main$6;
       const _component_MyButton = __nuxt_component_2$1;
       _push(`<footer${ssrRenderAttrs(mergeProps({ class: "bg-primary-500 py-10 px-4 md:px-24" }, _attrs))}><div>`);
       _push(ssrRenderComponent(_component_NuxtLink, {
@@ -594,17 +594,17 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(_component_Logo, null, null, _parent2, _scopeId));
-            _push2(`<p class="rubik text-2xl md:text-4xl font-bold text-white"${_scopeId}> Blue Freight Express </p>`);
+            _push2(`<p class="rubik text-2xl md:text-4xl font-bold text-white"${_scopeId}> Next Port Express </p>`);
           } else {
             return [
               createVNode(_component_Logo),
-              createVNode("p", { class: "rubik text-2xl md:text-4xl font-bold text-white" }, " Blue Freight Express ")
+              createVNode("p", { class: "rubik text-2xl md:text-4xl font-bold text-white" }, " Next Port Express ")
             ];
           }
         }),
         _: 1
       }, _parent));
-      _push(`<p class="mt-4 text-xs text-slate-300"> To be the industry leader, globally recognized for effective &amp; efficient solutions. To provide innovative solutions delivering quality, excellence and speed. </p></div><hr class="mt-10 mb-5 opacity-15"><div class="my-10 grid md:grid-cols-4 gap-10"><div><div class="grid gap-5"><p class="text-white rubik text-lg">Location</p><div class="h-[2px] w-10 bg-accent"></div></div><div class="mt-5 text-sm text-slate-300"> Somewhere Over Rainbow Green World Rainbow Green World T. 0908 1000 1000 E. contact@gocargo.com </div></div><div><div class="grid gap-5"><p class="text-white rubik text-lg">Pages</p><div class="h-[2px] w-10 bg-accent"></div></div><div class="mt-5 text-sm text-slate-300"><ul class="grid gap-1"><!--[-->`);
+      _push(`<p class="mt-4 text-xs text-slate-300"> To be the industry leader, globally recognized for effective &amp; efficient solutions. To provide innovative solutions delivering quality, excellence and speed. </p></div><hr class="mt-10 mb-5 opacity-15"><div class="my-10 grid md:grid-cols-4 gap-10"><div><div class="grid gap-5"><p class="text-white rubik text-lg">Location</p><div class="h-[2px] w-10 bg-accent"></div></div><div class="mt-5 text-sm text-slate-300"><p>${ssrInterpolate(unref(site).address)}</p><p>${ssrInterpolate(unref(site).city)}, ${ssrInterpolate(unref(site).state)}, ${ssrInterpolate(unref(site).countryAbbr)}</p><p>E. ${ssrInterpolate(unref(site).email)}</p></div></div><div><div class="grid gap-5"><p class="text-white rubik text-lg">Pages</p><div class="h-[2px] w-10 bg-accent"></div></div><div class="mt-5 text-sm text-slate-300"><ul class="grid gap-1"><!--[-->`);
       ssrRenderList(unref(siteLinks), (link) => {
         _push(`<li>`);
         _push(ssrRenderComponent(_component_NuxtLink, {
@@ -663,7 +663,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         }),
         _: 1
       }, _parent));
-      _push(`</div></div></div><hr class="my-5 opacity-15"><div class="text-center text-xs text-slate-300"> © Copyright 2022 - Blue Freight Express </div></footer>`);
+      _push(`</div></div></div><hr class="my-5 opacity-15"><div class="text-center text-xs text-slate-300"> © Copyright 2012 - Next Port Express </div></footer>`);
     };
   }
 });

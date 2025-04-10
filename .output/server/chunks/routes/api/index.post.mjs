@@ -1,6 +1,7 @@
-import { c as defineEventHandler, h as requireUserSession, g as readBody, e as createError } from '../../_/nitro.mjs';
+import { c as defineEventHandler, i as requireUserSession, g as readBody, e as createError } from '../../_/nitro.mjs';
 import { O as Order } from '../../_/order.model.mjs';
 import { U as User } from '../../_/user.model.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -108,8 +109,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'mongoose';
 import '../../_/db.mjs';
@@ -122,7 +121,9 @@ const index_post = defineEventHandler(async (event) => {
   if (!client || !client.name || !client.email) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Client name and email are required"
+      data: {
+        statusMessage: "Client name and email are required"
+      }
     });
   }
   let user = await User.findOne({ email: client.email });
@@ -137,13 +138,17 @@ const index_post = defineEventHandler(async (event) => {
   if (!order.items || order.items.length === 0) {
     throw createError({
       statusCode: 400,
-      statusMessage: "At least one item is required"
+      data: {
+        statusMessage: "At least one item is required"
+      }
     });
   }
   if (order.items.some((item) => !item.name || !item.quantity || !item.unitPrice)) {
     throw createError({
       statusCode: 400,
-      statusMessage: "All items must have a name, quantity, and unit price"
+      data: {
+        statusMessage: "All items must have a name, quantity, and unit price"
+      }
     });
   }
   const newOrder = await Order.create(order);

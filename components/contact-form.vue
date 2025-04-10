@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { z, type SafeParseReturnType } from 'zod'
 import { useMail } from '#imports'
+import { site } from '~/data'
 
 const toast = useToast()
 const mail = useMail()
@@ -53,6 +54,7 @@ const submitForm = async () => {
   loading.value = true
   try {
     await mail({
+      to: site.email,
       subject: 'Contact Request',
       html
     })

@@ -9,7 +9,9 @@ export default defineEventHandler(async (event) => {
   if (!order) {
     throw createError({
       statusCode: 404,
-      statusMessage: 'Order not found'
+      data: {
+        statusMessage: 'Order not found'
+      }
     })
   }
 

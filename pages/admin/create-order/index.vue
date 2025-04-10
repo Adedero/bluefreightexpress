@@ -9,6 +9,10 @@ definePageMeta({
   middleware: ['auth'],
 })
 
+useHead({
+  title: 'Create Order'
+})
+
 interface IOrder extends TOrder {
   client: TUser
 }
@@ -258,7 +262,7 @@ const createOrder = async () => {
 
                 <div class="grid form-control md:col-span-2">
                   <label>Name <small>(optional)</small></label>
-                  <PrimeInputText v-model.trim="order.destination!.name" placeholder="e.g. BFE Warehouse" fluid />
+                  <PrimeInputText v-model.trim="order.destination!.name" placeholder="e.g. NPE Warehouse" fluid />
                 </div>
 
                 <div class="form-control hidden lg:grid lg:col-span-2">

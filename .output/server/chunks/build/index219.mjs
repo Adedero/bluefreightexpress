@@ -11,6 +11,7 @@ import { resolveComponent, createElementBlock, openBlock, mergeProps, createVNod
 import '@primeuix/styles/inputtext';
 import './index4.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -115,8 +116,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

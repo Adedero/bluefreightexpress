@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { site } from '~/data';
 import siteLinks from '~/data/site-links';
 </script>
 
@@ -8,7 +9,7 @@ import siteLinks from '~/data/site-links';
       <NuxtLink to="/" class="flex items-center gap-2">
         <Logo />
         <p class="rubik text-2xl md:text-4xl font-bold text-white">
-          Blue Freight Express
+          Next Port Express
         </p>
       </NuxtLink>
       <p class="mt-4 text-xs text-slate-300">
@@ -26,10 +27,9 @@ import siteLinks from '~/data/site-links';
         </div>
 
         <div class="mt-5 text-sm text-slate-300">
-          Somewhere Over Rainbow
-          Green World Rainbow Green World
-          T. 0908 1000 1000
-          E. contact@gocargo.com 
+          <p>{{ site.address }}</p>
+          <p>{{ site.city }}, {{ site.state }}, {{ site.countryAbbr }}</p>
+          <p>E. {{ site.email }}</p>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ import siteLinks from '~/data/site-links';
     <hr class="my-5 opacity-15">
 
     <div class="text-center text-xs text-slate-300">
-      &copy; Copyright 2022 - Blue Freight Express 
+      &copy; Copyright 2012 - Next Port Express 
     </div>
   </footer>
 </template>

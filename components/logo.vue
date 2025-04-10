@@ -1,19 +1,12 @@
 <script setup lang="ts">
-const { color = '#22d3ee' } = defineProps<{
+const { color = '#ffb82b', size = '36' } = defineProps<{
   color?: string
+  size?: string | number
 }>()
 </script>
 <template>
-  <div class="wrapper grid grid-cols-2 gap-[3.5px] w-fit h-fit">
-    <div class="w-[10px] aspect-square bg-cyan-400 rotate-[60deg] -translate-x-[3px]"></div>
-    <div class="w-[10px] aspect-square bg-cyan-400"></div>
-    <div class="w-[10px] aspect-square bg-cyan-400"></div>
-    <div class="w-[10px] aspect-square bg-cyan-400"></div>
-  </div>
+  <svg :width="size" :height="size" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg" :fill="color">
+    <path d="M2 7 L40 50 L2 93 L28 93 L66 50 L28 7 Z" />
+    <path d="M42 7 L80 50 L42 93 L68 93 L106 50 L68 7 Z" />
+  </svg>
 </template>
-
-<style scoped>
-.wrapper * {
-  background-color: v-bind(color);
-}
-</style>

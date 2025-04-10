@@ -1,15 +1,15 @@
-import { _ as __nuxt_component_1 } from './logo.vue.mjs';
 import __nuxt_component_0 from './index2117.mjs';
-import { f as useUserSession, s as script, n as navigateTo } from './server.mjs';
+import { e as useUserSession, s as script, n as navigateTo } from './server.mjs';
 import { unref, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderSlot } from 'vue/server-renderer';
-import './_plugin-vue_export-helper.mjs';
+import { _ as _sfc_main$1 } from './logo.vue2.mjs';
 import '@iconify/utils/lib/css/icon';
 import '@iconify/vue';
 import './v3.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -117,8 +117,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'unhead/server';
 import 'unhead/utils';
@@ -147,14 +145,14 @@ const _sfc_main = {
       await navigateTo("/login");
     }
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Logo = __nuxt_component_1;
+      const _component_Logo = _sfc_main$1;
       const _component_Icon = __nuxt_component_0;
       const _component_PrimeButton = script;
       _push(`<div${ssrRenderAttrs(_attrs)}><header class="h-[3.5rem] border-b px-4 py-2 flex items-center justify-between gap-2"><div class="flex items-center gap-1">`);
       _push(ssrRenderComponent(_component_Logo, {
         color: "#6366f1"
       }, null, _parent));
-      _push(`<p class="font-rubik font-semibold text-3xl text-indigo-500">BFE</p></div><div class="flex items-center gap-4"><div class="flex items-center gap-2"><div class="hidden md:block text-xs text-right leading-[14px]"><p class="font-bold">${ssrInterpolate(unref(user).name)}</p><p>${ssrInterpolate(unref(user).email)}</p></div>`);
+      _push(`<p class="font-rubik font-semibold text-3xl text-indigo-500">NPE</p></div><div class="flex items-center gap-4"><div class="flex items-center gap-2"><div class="hidden md:block text-xs text-right leading-[14px]"><p class="font-bold">${ssrInterpolate(unref(user).name)}</p><p>${ssrInterpolate(unref(user).email)}</p></div>`);
       _push(ssrRenderComponent(_component_Icon, {
         name: "lucide:user-circle",
         size: "2rem",

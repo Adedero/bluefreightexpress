@@ -1,6 +1,7 @@
-import { c as defineEventHandler, h as requireUserSession, i as getRouterParam, g as readBody, e as createError } from '../../../_/nitro.mjs';
+import { c as defineEventHandler, i as requireUserSession, j as getRouterParam, g as readBody, e as createError } from '../../../_/nitro.mjs';
 import { O as Order } from '../../../_/order.model.mjs';
 import { U as User } from '../../../_/user.model.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -108,8 +109,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'mongoose';
 import '../../../_/db.mjs';
@@ -122,26 +121,34 @@ const _id__put = defineEventHandler(async (event) => {
   if (!order) {
     throw createError({
       statusCode: 400,
-      statusMessage: "No order data provided"
+      data: {
+        statusMessage: "No order data provided"
+      }
     });
   }
   if (!order.user) {
     throw createError({
       statusCode: 400,
-      statusMessage: "User is required"
+      data: {
+        statusMessage: "User is required"
+      }
     });
   }
   if (!order.destination) {
     throw createError({
       statusCode: 400,
-      statusMessage: "Destination is required"
+      data: {
+        statusMessage: "Destination is required"
+      }
     });
   }
   let orderToUpdate = await Order.findById(id).populate("user");
   if (!orderToUpdate) {
     throw createError({
       statusCode: 404,
-      statusMessage: "Order not found"
+      data: {
+        statusMessage: "Order not found"
+      }
     });
   }
   if (order.user.name !== orderToUpdate.user.name || order.user.email !== orderToUpdate.user.email) {
@@ -150,7 +157,9 @@ const _id__put = defineEventHandler(async (event) => {
       if (existingUser) {
         throw createError({
           statusCode: 400,
-          statusMessage: "Email already exists"
+          data: {
+            statusMessage: "Email already exists"
+          }
         });
       }
     }
@@ -158,7 +167,9 @@ const _id__put = defineEventHandler(async (event) => {
     if (!user) {
       throw createError({
         statusCode: 404,
-        statusMessage: "User not found"
+        data: {
+          statusMessage: "User not found"
+        }
       });
     }
     user.name = order.user.name;
@@ -168,7 +179,9 @@ const _id__put = defineEventHandler(async (event) => {
   if (!order.items || order.items.length === 0) {
     throw createError({
       statusCode: 400,
-      statusMessage: "At least one item is required"
+      data: {
+        statusMessage: "At least one item is required"
+      }
     });
   }
   order.items = order.items.map((item) => {

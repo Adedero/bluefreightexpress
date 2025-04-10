@@ -5,8 +5,10 @@ import { defineComponent, withCtx, unref, createTextVNode, toDisplayString, crea
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
 import { _ as _imports_0 } from './harbour.jpg.mjs';
 import { s as services } from './services.mjs';
+import { u as useHead } from './v3.mjs';
 import { _ as _sfc_main$1, a as _sfc_main$2 } from './affiliates.vue2.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -114,8 +116,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
@@ -127,20 +127,22 @@ import 'mongoose';
 import '@primeuix/utils/uuid';
 import '@primeuix/utils/zindex';
 import '@iconify/utils/lib/css/icon';
-import './v3.mjs';
+import './asyncData.mjs';
+import './plane-2.jpg.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'unhead/utils';
 import 'devalue';
 import 'unhead/plugins';
-import './asyncData.mjs';
-import './plane-2.jpg.mjs';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
   __ssrInlineRender: true,
   setup(__props) {
+    useHead({
+      title: "Services"
+    });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLayout = __nuxt_component_0;
       const _component_SubtitleText = _sfc_main$1;

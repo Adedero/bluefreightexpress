@@ -6,6 +6,7 @@ import { mergeProps, resolveComponent, resolveDirective, createElementBlock, ope
 import { B as BaseStyle, R as Ripple, y as script$6 } from './server.mjs';
 import { style } from '@primeuix/styles/panelmenu';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -111,8 +112,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

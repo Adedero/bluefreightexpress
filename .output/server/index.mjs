@@ -1,6 +1,7 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { Server as Server$1 } from 'node:http';
 import { Server } from 'node:https';
 import { t as toNodeListener, d as destr, u as useRuntimeConfig, a as trapUnhandledNodeErrors, s as setupGracefulShutdown, b as useNitroApp } from './chunks/_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:events';
 import 'node:buffer';
@@ -106,8 +107,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 
 const cert = process.env.NITRO_SSL_CERT;

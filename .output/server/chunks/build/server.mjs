@@ -1,5 +1,5 @@
 import { shallowReactive, reactive, effectScope, getCurrentScope, hasInjectionContext, getCurrentInstance, toRef, inject, shallowRef, isReadonly, isRef, computed, isShallow, isReactive, toRaw, defineAsyncComponent, markRaw, ref, readonly, onMounted, nextTick, watch, defineComponent, h, unref, Suspense, mergeProps, provide, Fragment, useId, createElementBlock, openBlock, createElementVNode, renderSlot, createTextVNode, toDisplayString, resolveComponent, resolveDirective, withDirectives, createBlock, resolveDynamicComponent, withCtx, createCommentVNode, normalizeClass, Teleport, createVNode, Transition, createSlots, normalizeProps, TransitionGroup, renderList, useSSRContext, onErrorCaptured, onServerPrefetch, createApp } from 'vue';
-import { v as createHooks, w as getContext, e as createError$1, x as toRouteMatcher, y as createRouter, z as defu, A as hasProtocol, B as joinURL, C as withQuery, D as sanitizeStatusCode, E as isScriptProtocol, F as executeAsync, G as appendResponseHeader, H as defuFn, I as klona } from '../_/nitro.mjs';
+import { w as createHooks, x as getContext, e as createError$1, y as toRouteMatcher, z as createRouter, A as defu, B as hasProtocol, C as joinURL, D as withQuery, E as sanitizeStatusCode, F as isScriptProtocol, G as executeAsync, H as appendResponseHeader, I as defuFn, J as klona } from '../_/nitro.mjs';
 import { START_LOCATION, createMemoryHistory, createRouter as createRouter$1, useRoute as useRoute$1, RouterView } from 'vue-router';
 import { _api, addAPIProvider, setCustomIconsLoader } from '@iconify/vue';
 import { EventBus } from '@primeuix/utils/eventbus';
@@ -2560,23 +2560,6 @@ const mongodb_server_FMcB5_IbL5aBWllYegNv6Pk4LOQQM4dB2LpDn5UKxOI = defineNuxtPlu
   [__temp, __restore] = executeAsync(() => createConnection()), await __temp, __restore();
 });
 
-const plugin_nuxt3_HwaxZtv1FVNZCAnHrU7p6ANMg8NxWZ55SxM7678VJKc = defineNuxtPlugin(() => ({
-  provide: {
-    mail: {
-      send: async (config) => {
-        try {
-          await $fetch("/mail/send", {
-            body: config,
-            method: "POST"
-          });
-        } catch (error) {
-          throw new Error(error.response._data.statusMessage);
-        }
-      }
-    }
-  }
-}));
-
 const plugins = [
   unhead_k2P3m_ZDyjlr2mMYnoDPwavjsDN8hBlk9cFai0bbopU,
   plugin,
@@ -2585,8 +2568,7 @@ const plugins = [
   components_plugin_z4hgvsiddfKkfXTP6M8M4zG5Cb7sGnDhcryKVM45Di4,
   plugin_MeUvTuoKUi51yb_kBguab6hdcExVXeTtZtTg9TZZBB8,
   primevue_plugin_0tbz5Y3Ab_H50qf9PQhqyN3k7XWjmG9dWGLJNwEfVI0,
-  mongodb_server_FMcB5_IbL5aBWllYegNv6Pk4LOQQM4dB2LpDn5UKxOI,
-  plugin_nuxt3_HwaxZtv1FVNZCAnHrU7p6ANMg8NxWZ55SxM7678VJKc
+  mongodb_server_FMcB5_IbL5aBWllYegNv6Pk4LOQQM4dB2LpDn5UKxOI
 ];
 
 function defaultEstimatedProgress(duration, elapsed) {
@@ -6781,5 +6763,5 @@ const server = /*#__PURE__*/Object.freeze({
   default: entry$1
 });
 
-export { script$e as A, BaseStyle as B, FilterMatchMode as C, FilterOperator as D, script$3 as E, FilterService as F, BaseDirective as G, ConfirmationEventBus as H, unblockBodyScroll as I, blockBodyScroll as J, DynamicDialogEventBus as K, script$5 as L, script$4 as M, server as N, Ripple as R, __nuxt_component_0 as _, script$8 as a, useRoute as b, useConfirm as c, createError as d, useNuxtApp as e, useUserSession as f, fetchDefaults as g, useRequestFetch as h, defineNuxtRouteMiddleware as i, script$f as j, script$9 as k, useRouter as l, useRuntimeConfig as m, navigateTo as n, nuxtLinkDefaults as o, useAppConfig as p, asyncDataDefaults as q, resolveRouteObject as r, script$d as s, tryUseNuxtApp as t, useToast as u, script$g as v, script$6 as w, script$c as x, script$h as y, FocusTrap as z };
+export { script$e as A, BaseStyle as B, FilterMatchMode as C, FilterOperator as D, script$3 as E, FilterService as F, BaseDirective as G, ConfirmationEventBus as H, unblockBodyScroll as I, blockBodyScroll as J, DynamicDialogEventBus as K, script$5 as L, script$4 as M, server as N, Ripple as R, __nuxt_component_0 as _, script$8 as a, useRoute as b, useConfirm as c, createError as d, useUserSession as e, fetchDefaults as f, useRequestFetch as g, defineNuxtRouteMiddleware as h, useRouter as i, useNuxtApp as j, useRuntimeConfig as k, nuxtLinkDefaults as l, useAppConfig as m, navigateTo as n, asyncDataDefaults as o, script$g as p, script$9 as q, resolveRouteObject as r, script$d as s, tryUseNuxtApp as t, useToast as u, script$6 as v, script$f as w, script$c as x, script$h as y, FocusTrap as z };
 //# sourceMappingURL=server.mjs.map

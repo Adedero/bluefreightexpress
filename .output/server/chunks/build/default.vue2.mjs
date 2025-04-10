@@ -1,11 +1,12 @@
-import { _ as __nuxt_component_1 } from './logo.vue.mjs';
 import { _ as __nuxt_component_0 } from './nuxt-link.mjs';
 import __nuxt_component_0$1 from './index2117.mjs';
 import { mergeProps, withCtx, createVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrRenderSlot } from 'vue/server-renderer';
 import { _ as _imports_0 } from './plane-2.jpg.mjs';
 import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
+import { _ as _sfc_main$1 } from './logo.vue2.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -113,8 +114,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import './server.mjs';
 import 'vue-router';
@@ -138,7 +137,7 @@ import './asyncData.mjs';
 
 const _sfc_main = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_Logo = __nuxt_component_1;
+  const _component_Logo = _sfc_main$1;
   const _component_NuxtLink = __nuxt_component_0;
   const _component_Icon = __nuxt_component_0$1;
   _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-screen h-screen" }, _attrs))}><div class="w-full h-full grid md:grid-cols-5 lg:grid-cols-2 md:p-2"><div class="hidden relative z-[1] rounded-md md:col-span-2 lg:col-span-1 overflow-hidden md:flex flex-col justify-between"><header class="flex items-center gap-4 justify-between text-white p-4">`);

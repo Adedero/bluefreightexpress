@@ -1,0 +1,2 @@
+const e={name:"Next Port Express",abbr:"NPE",email:"info@nextportexpress.com",address:"Office 810, Messeplatz 1",city:"Basel",state:"Basel-Stadt",country:"Switzerland",countryAbbr:"CH",openHours:`Mon - Sat 9.00 - 18.00
+Sunday Closed`},s=["processing","shipped","in transit","delivered","cancelled"],t=["air","ocean","road"],o=["home","pickup station"],a=["info","success","error"];export{o as d,t as f,s as o,e as s,a as t};

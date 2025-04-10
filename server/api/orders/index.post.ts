@@ -11,7 +11,9 @@ export default defineEventHandler(async (event) => {
   if (!client || !client.name || !client.email) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Client name and email are required'
+      data: {
+        statusMessage: 'Client name and email are required'
+      }
     })
   }
 
@@ -31,14 +33,18 @@ export default defineEventHandler(async (event) => {
   if (!order.items || order.items.length === 0) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'At least one item is required'
+      data: {
+        statusMessage: 'At least one item is required'
+      }
     })
   }
 
   if (order.items.some((item: Record<string, any>) => !item.name || !item.quantity || !item.unitPrice)) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'All items must have a name, quantity, and unit price'
+      data: {
+        statusMessage: 'All items must have a name, quantity, and unit price'
+      }
     })
   }
 

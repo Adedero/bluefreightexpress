@@ -11,21 +11,27 @@ export default defineEventHandler(async (event) => {
   if (!order) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'No order data provided'
+      data: {
+        statusMessage: 'No order data provided'
+      }
     })
   }
 
   if (!order.user) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'User is required'
+      data: {
+        statusMessage: 'User is required'
+      }
     })
   }
 
   if (!order.destination) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Destination is required'
+      data: {
+        statusMessage: 'Destination is required'
+      }
     })
   }
 
@@ -34,7 +40,9 @@ export default defineEventHandler(async (event) => {
   if (!orderToUpdate) {
     throw createError({
       statusCode: 404,
-      statusMessage: 'Order not found'
+      data: {
+        statusMessage: 'Order not found'
+      }
     })
   }
 
@@ -47,7 +55,9 @@ export default defineEventHandler(async (event) => {
       if (existingUser) {
         throw createError({
           statusCode: 400,
-          statusMessage: 'Email already exists'
+          data: {
+            statusMessage: 'Email already exists'
+          }
         })
       }
     }
@@ -56,7 +66,9 @@ export default defineEventHandler(async (event) => {
     if (!user) {
       throw createError({
         statusCode: 404,
-        statusMessage: 'User not found'
+        data: {
+          statusMessage: 'User not found'
+        }
       })
     }
     user.name = order.user.name
@@ -67,7 +79,9 @@ export default defineEventHandler(async (event) => {
   if (!order.items || order.items.length === 0) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'At least one item is required'
+      data: {
+        statusMessage: 'At least one item is required'
+      }
     })
   }
 

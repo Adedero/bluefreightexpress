@@ -12,9 +12,12 @@ import { u as useToast, s as script, n as navigateTo } from './server.mjs';
 import { defineComponent, reactive, ref, mergeProps, withCtx, createVNode, createTextVNode, unref, createBlock, openBlock, Fragment, renderList, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList } from 'vue/server-renderer';
 import random from 'random-string-generator';
-import { o as orderStatuses, f as freightModes, d as deliveryModes, _ as _sfc_main$1 } from './index.mjs';
+import { o as orderStatuses, f as freightModes, d as deliveryModes } from './index.mjs';
+import { u as useHead } from './v3.mjs';
 import { u as useErrorToast } from './use-error-toast.mjs';
+import { _ as _sfc_main$1 } from './location-picker.vue2.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -122,8 +125,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import '@primeuix/utils';
 import './index3.mjs';
@@ -149,11 +150,20 @@ import '@iconify/vue';
 import '@primeuix/styles/base';
 import 'mongoose';
 import '@primeuix/utils/uuid';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'unhead/utils';
+import 'devalue';
+import 'unhead/plugins';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "index",
   __ssrInlineRender: true,
   setup(__props) {
+    useHead({
+      title: "Create Order"
+    });
     const toast = useToast();
     const order = reactive({
       client: {
@@ -902,7 +912,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                           modelValue: unref(order).destination.name,
                           "onUpdate:modelValue": ($event) => unref(order).destination.name = $event,
                           modelModifiers: { trim: true },
-                          placeholder: "e.g. BFE Warehouse",
+                          placeholder: "e.g. NPE Warehouse",
                           fluid: ""
                         }, null, _parent4, _scopeId3));
                         _push4(`</div><div class="form-control hidden lg:grid lg:col-span-2"${_scopeId3}><label${_scopeId3}>Address <span class="text-red-500"${_scopeId3}>*</span></label>`);
@@ -1019,7 +1029,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                                   modelValue: unref(order).destination.name,
                                   "onUpdate:modelValue": ($event) => unref(order).destination.name = $event,
                                   modelModifiers: { trim: true },
-                                  placeholder: "e.g. BFE Warehouse",
+                                  placeholder: "e.g. NPE Warehouse",
                                   fluid: ""
                                 }, null, 8, ["modelValue", "onUpdate:modelValue"])
                               ]),
@@ -1199,7 +1209,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                                   modelValue: unref(order).destination.name,
                                   "onUpdate:modelValue": ($event) => unref(order).destination.name = $event,
                                   modelModifiers: { trim: true },
-                                  placeholder: "e.g. BFE Warehouse",
+                                  placeholder: "e.g. NPE Warehouse",
                                   fluid: ""
                                 }, null, 8, ["modelValue", "onUpdate:modelValue"])
                               ]),
@@ -1612,7 +1622,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                                 modelValue: unref(order).destination.name,
                                 "onUpdate:modelValue": ($event) => unref(order).destination.name = $event,
                                 modelModifiers: { trim: true },
-                                placeholder: "e.g. BFE Warehouse",
+                                placeholder: "e.g. NPE Warehouse",
                                 fluid: ""
                               }, null, 8, ["modelValue", "onUpdate:modelValue"])
                             ]),

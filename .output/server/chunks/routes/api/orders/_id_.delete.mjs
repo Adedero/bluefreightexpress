@@ -1,5 +1,6 @@
-import { c as defineEventHandler, h as requireUserSession, i as getRouterParam, e as createError } from '../../../_/nitro.mjs';
+import { c as defineEventHandler, i as requireUserSession, j as getRouterParam, e as createError } from '../../../_/nitro.mjs';
 import { O as Order } from '../../../_/order.model.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -107,8 +108,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'mongoose';
 import '../../../_/db.mjs';
@@ -120,7 +119,9 @@ const _id__delete = defineEventHandler(async (event) => {
   if (!order) {
     throw createError({
       statusCode: 404,
-      statusMessage: "Order not found"
+      data: {
+        statusMessage: "Order not found"
+      }
     });
   }
   await order.deleteOne();

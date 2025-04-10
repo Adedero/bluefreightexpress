@@ -12,6 +12,10 @@ definePageMeta({
 const route = useRoute()
 const { id } = route.params
 
+useHead({
+  title: `Order - ${id.toString()}`
+})
+
 const toast = useToast()
 const confirm = useConfirm()
 
@@ -453,7 +457,7 @@ const copyTrackingNumber = async () => {
 
               <div class="grid form-control md:col-span-6 lg:col-span-6">
                 <label>Name <small>(optional)</small></label>
-                <PrimeInputText v-model.trim="updatedOrder.destination!.name" placeholder="e.g. BFE Warehouse" fluid />
+                <PrimeInputText v-model.trim="updatedOrder.destination!.name" placeholder="e.g. NPE Warehouse" fluid />
               </div>
               
               <div class="grid form-control md:col-span-6 lg:col-span-4">
@@ -586,7 +590,7 @@ const copyTrackingNumber = async () => {
 
                 <div class="grid form-control md:col-span-6 lg:col-span-6">
                   <label>Name <small>(optional)</small></label>
-                  <PrimeInputText v-model.trim="item.location.name" placeholder="e.g. BFE Warehouse" fluid />
+                  <PrimeInputText v-model.trim="item.location.name" placeholder="e.g. NPE Warehouse" fluid />
                 </div>
                 
                 <div class="grid form-control md:col-span-6 lg:col-span-4">

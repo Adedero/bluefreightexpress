@@ -2,6 +2,7 @@ import { resolve, isArray, mergeKeys, isEmpty, isNotEmpty, omit } from '@primeui
 import { reactive, computed, getCurrentInstance, onMounted, nextTick, mergeProps, toValue, ref, watch, createElementBlock, openBlock, withModifiers, renderSlot } from 'vue';
 import { B as BaseStyle, y as script$2 } from './server.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -109,8 +110,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

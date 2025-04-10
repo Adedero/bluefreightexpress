@@ -9,7 +9,7 @@
 
       <div class="grid gap-6">
         <SubtitleText text="Overview" />
-        <h3 class="rubik text-4xl font-bold">Blue Freight Express In A Word</h3>
+        <h3 class="rubik text-4xl font-bold">Next Port Express In A Word</h3>
         <div class="text-slate-500">
           <p>
             Our global reach, deep industry knowledge, innovative technology, and extensive transportation network have allowed us to bring the latest learning to bear on our customers' unique challenges and desires. 

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { DataTableRowClickEvent } from 'primevue'
 
+useHead({
+  title: 'Admin'
+})
+
 definePageMeta({
   layout: 'admin-default',
   middleware: ['auth'],

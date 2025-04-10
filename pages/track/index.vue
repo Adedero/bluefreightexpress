@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: 'Track'
+})
+</script>
+
 <template>
   <div>
     <NuxtLayout name="main-default">

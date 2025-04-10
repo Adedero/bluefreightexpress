@@ -5,6 +5,7 @@ import { resolveComponent, createElementBlock, openBlock, mergeProps, createElem
 import '@primeuix/utils';
 import '@primeuix/styles/chip';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -110,8 +111,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

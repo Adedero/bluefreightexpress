@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: 'Log In'
+})
+</script>
+
 <template>
   <div>
     <NuxtLayout name="auth-default">

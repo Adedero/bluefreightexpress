@@ -1,11 +1,13 @@
-import { b as useRoute, u as useToast, f as useUserSession, _ as __nuxt_component_0$1 } from './server.mjs';
+import { b as useRoute, u as useToast, e as useUserSession, _ as __nuxt_component_0$1 } from './server.mjs';
 import { _ as __nuxt_component_0$2 } from './nuxt-link.mjs';
 import __nuxt_component_0 from './index2117.mjs';
 import { _ as __nuxt_component_2 } from './my-button.vue.mjs';
 import { defineComponent, ref, mergeProps, unref, useSSRContext, withCtx, createVNode } from 'vue';
 import { ssrRenderAttrs, ssrRenderAttr, ssrInterpolate, ssrRenderDynamicModel, ssrRenderComponent } from 'vue/server-renderer';
 import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
+import { u as useHead } from './v3.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -113,8 +115,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
@@ -126,14 +126,13 @@ import 'mongoose';
 import '@primeuix/utils/uuid';
 import '@primeuix/utils/zindex';
 import '@iconify/utils/lib/css/icon';
-import './v3.mjs';
+import './asyncData.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'unhead/utils';
 import 'devalue';
 import 'unhead/plugins';
-import './asyncData.mjs';
 
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "form",
@@ -192,74 +191,82 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const __nuxt_component_3 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-799c3d27"]]);
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLayout = __nuxt_component_0$1;
-  const _component_NuxtLink = __nuxt_component_0$2;
-  const _component_Icon = __nuxt_component_0;
-  const _component_LoginForm = __nuxt_component_3;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
-  _push(ssrRenderComponent(_component_NuxtLayout, { name: "auth-default" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<div${_scopeId}><div class="md:hidden fixed top-4 right-4"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_NuxtLink, {
-          to: "/",
-          class: "flex items-center gap-2 text-xs font-semibold px-3 py-1 bg-primary-500/60 hover:bg-primary-500/70 transition-colors rounded-full text-white"
-        }, {
-          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
-            if (_push3) {
-              _push3(`<span${_scopeId2}>Back to website</span>`);
-              _push3(ssrRenderComponent(_component_Icon, { name: "lucide:arrow-right" }, null, _parent3, _scopeId2));
-            } else {
-              return [
-                createVNode("span", null, "Back to website"),
-                createVNode(_component_Icon, { name: "lucide:arrow-right" })
-              ];
-            }
-          }),
-          _: 1
-        }, _parent2, _scopeId));
-        _push2(`</div><header${_scopeId}><h1 class="rubik font-bold text-4xl md:text-5xl"${_scopeId}>Log In</h1><p class="text-sm mt-1"${_scopeId}>Log in with your admin credentials</p></header><div class="mt-10 w-[80vw] md:w-fit"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_LoginForm, null, null, _parent2, _scopeId));
-        _push2(`</div></div>`);
-      } else {
-        return [
-          createVNode("div", null, [
-            createVNode("div", { class: "md:hidden fixed top-4 right-4" }, [
-              createVNode(_component_NuxtLink, {
-                to: "/",
-                class: "flex items-center gap-2 text-xs font-semibold px-3 py-1 bg-primary-500/60 hover:bg-primary-500/70 transition-colors rounded-full text-white"
-              }, {
-                default: withCtx(() => [
-                  createVNode("span", null, "Back to website"),
-                  createVNode(_component_Icon, { name: "lucide:arrow-right" })
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useHead({
+      title: "Log In"
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLayout = __nuxt_component_0$1;
+      const _component_NuxtLink = __nuxt_component_0$2;
+      const _component_Icon = __nuxt_component_0;
+      const _component_LoginForm = __nuxt_component_3;
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      _push(ssrRenderComponent(_component_NuxtLayout, { name: "auth-default" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<div${_scopeId}><div class="md:hidden fixed top-4 right-4"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_NuxtLink, {
+              to: "/",
+              class: "flex items-center gap-2 text-xs font-semibold px-3 py-1 bg-primary-500/60 hover:bg-primary-500/70 transition-colors rounded-full text-white"
+            }, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(`<span${_scopeId2}>Back to website</span>`);
+                  _push3(ssrRenderComponent(_component_Icon, { name: "lucide:arrow-right" }, null, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode("span", null, "Back to website"),
+                    createVNode(_component_Icon, { name: "lucide:arrow-right" })
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+            _push2(`</div><header${_scopeId}><h1 class="rubik font-bold text-4xl md:text-5xl"${_scopeId}>Log In</h1><p class="text-sm mt-1"${_scopeId}>Log in with your admin credentials</p></header><div class="mt-10 w-[80vw] md:w-fit"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_LoginForm, null, null, _parent2, _scopeId));
+            _push2(`</div></div>`);
+          } else {
+            return [
+              createVNode("div", null, [
+                createVNode("div", { class: "md:hidden fixed top-4 right-4" }, [
+                  createVNode(_component_NuxtLink, {
+                    to: "/",
+                    class: "flex items-center gap-2 text-xs font-semibold px-3 py-1 bg-primary-500/60 hover:bg-primary-500/70 transition-colors rounded-full text-white"
+                  }, {
+                    default: withCtx(() => [
+                      createVNode("span", null, "Back to website"),
+                      createVNode(_component_Icon, { name: "lucide:arrow-right" })
+                    ]),
+                    _: 1
+                  })
                 ]),
-                _: 1
-              })
-            ]),
-            createVNode("header", null, [
-              createVNode("h1", { class: "rubik font-bold text-4xl md:text-5xl" }, "Log In"),
-              createVNode("p", { class: "text-sm mt-1" }, "Log in with your admin credentials")
-            ]),
-            createVNode("div", { class: "mt-10 w-[80vw] md:w-fit" }, [
-              createVNode(_component_LoginForm)
-            ])
-          ])
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div>`);
-}
+                createVNode("header", null, [
+                  createVNode("h1", { class: "rubik font-bold text-4xl md:text-5xl" }, "Log In"),
+                  createVNode("p", { class: "text-sm mt-1" }, "Log in with your admin credentials")
+                ]),
+                createVNode("div", { class: "mt-10 w-[80vw] md:w-fit" }, [
+                  createVNode(_component_LoginForm)
+                ])
+              ])
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div>`);
+    };
+  }
+});
+
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/login/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue6.mjs.map

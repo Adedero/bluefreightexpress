@@ -7,6 +7,6 @@ export default function useErrorToast(error: FetchError | Error | unknown, toast
     //@ts-expect-error
     summary: error.name || 'Error',
     //@ts-expect-error
-    detail: error.statusMessage || error.message || error
+    detail: error.data?.statusMessage || error.statusMessage || error.message || error.toString()
   })
 }

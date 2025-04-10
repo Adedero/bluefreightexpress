@@ -3,7 +3,7 @@
     <div class="text-white mt-36 md:mt-auto flex flex-col gap-6">
       <SubtitleText text="Logistics & Supply Chain Solutions" dark />
 
-      <h1 aos data-aos="slide-up" class="rubik text-4xl md:text-6xl font-bold text-white text-balance">
+      <h1 class="rubik text-4xl md:text-6xl font-bold text-white text-balance">
         Safest Logistics <br class="hidden md:inline"> Solutions Provider <br class="hidden md:inline"> With Integrity
       </h1>
 

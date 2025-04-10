@@ -4,6 +4,10 @@ import services from '~/data/services'
 const { slug } = useRoute().params
 
 const service = services.find((service) => service.slug === slug.toString())
+
+useHead({
+  title: service?.name || 'Service'
+})
 </script>
 
 <template>

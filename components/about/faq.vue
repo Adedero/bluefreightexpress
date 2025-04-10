@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Accordion from '~/components/accordion/accordion.vue'
 import AccordionItem from '~/components/accordion/accordion-item.vue'
+import { aboutPageFaqs } from '~/data/faq';
 </script>
 
 <template>
@@ -13,8 +14,8 @@ import AccordionItem from '~/components/accordion/accordion-item.vue'
     </div>
 
     <div class="my-10 grid md:grid-cols-2 gap-x-6 gap-y-4">
-      <Accordion v-for="i in 2">
-        <AccordionItem v-for="i in 3" :name="i.toString()" title="Why are shipping rates so volatile" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus est, voluptas non sapiente nesciunt nulla enim quia nisi amet ex deserunt impedit maxime fugit consectetur dolorem adipisci aspernatur doloribus!" />
+      <Accordion v-for="faqs in [aboutPageFaqs.slice(0, 3), aboutPageFaqs.slice(3)]">
+        <AccordionItem v-for="faq in faqs" :name="faq.q" :title="faq.q" :description="faq.a" />
       </Accordion>
     </div>
 

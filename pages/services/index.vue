@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import services from '~/data/services';
+
+useHead({
+  title: 'Services'
+})
 </script>
 
 <template>

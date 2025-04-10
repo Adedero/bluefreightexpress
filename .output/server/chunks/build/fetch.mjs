@@ -1,6 +1,6 @@
 import { computed, toValue, reactive } from 'vue';
-import { J as hash } from '../_/nitro.mjs';
-import { g as fetchDefaults, h as useRequestFetch } from './server.mjs';
+import { K as hash } from '../_/nitro.mjs';
+import { f as fetchDefaults, g as useRequestFetch } from './server.mjs';
 import { u as useAsyncData } from './asyncData.mjs';
 
 function useFetch(request, arg1, arg2) {

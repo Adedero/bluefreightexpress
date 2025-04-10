@@ -8,10 +8,12 @@ import script$2 from './index260.mjs';
 import script$1 from './index261.mjs';
 import script from './index262.mjs';
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderClass, ssrRenderComponent, ssrRenderStyle } from 'vue/server-renderer';
+import { u as useHead } from './v3.mjs';
 import { u as useFetch } from './fetch.mjs';
 import { t as toTitleCase } from './index15.mjs';
 import { u as useDateFormat } from './index16.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -119,8 +121,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
@@ -132,13 +132,6 @@ import 'mongoose';
 import '@primeuix/utils/uuid';
 import '@primeuix/utils/zindex';
 import '@iconify/utils/lib/css/icon';
-import './v3.mjs';
-import '../routes/renderer.mjs';
-import 'vue-bundle-renderer/runtime';
-import 'unhead/server';
-import 'unhead/utils';
-import 'devalue';
-import 'unhead/plugins';
 import './asyncData.mjs';
 import './my-button.vue.mjs';
 import './_plugin-vue_export-helper.mjs';
@@ -167,6 +160,12 @@ import './index20.mjs';
 import './index227.mjs';
 import './index21.mjs';
 import './index30.mjs';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'unhead/utils';
+import 'devalue';
+import 'unhead/plugins';
 
 const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "order-status-indicator",
@@ -339,6 +338,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   async setup(__props) {
     let __temp, __restore;
     const { trackingNumber } = useRoute().params;
+    useHead({
+      title: (trackingNumber == null ? void 0 : trackingNumber.toString()) || "Tracking"
+    });
     const { data: order } = ([__temp, __restore] = withAsyncContext(() => useFetch(`/api/orders/track/${trackingNumber}`, "$yDQu1K0QkG")), __temp = await __temp, __restore(), __temp);
     const computedTrackingUpdates = computed(() => {
       if (!order.value) return [];

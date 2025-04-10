@@ -6,9 +6,11 @@ import script$2 from './index240.mjs';
 import script$1 from './index243.mjs';
 import { s as script, n as navigateTo } from './server.mjs';
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent } from 'vue/server-renderer';
+import { u as useHead } from './v3.mjs';
 import { u as useFetch } from './fetch.mjs';
 import { u as useDateFormat } from './index16.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -116,8 +118,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import '@primeuix/utils/dom';
 import './index17.mjs';
@@ -152,6 +152,12 @@ import '@iconify/vue';
 import '@primeuix/styles/base';
 import 'mongoose';
 import '@primeuix/utils/uuid';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'unhead/utils';
+import 'devalue';
+import 'unhead/plugins';
 import './asyncData.mjs';
 
 const _sfc_main = /* @__PURE__ */ defineComponent({
@@ -159,6 +165,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   async setup(__props) {
     let __temp, __restore;
+    useHead({
+      title: "Admin"
+    });
     const page = ref(0);
     const { data: count } = ([__temp, __restore] = withAsyncContext(() => useFetch("/api/orders/count", "$BDyEMCVgmz")), __temp = await __temp, __restore(), __temp);
     const { data: orders } = ([__temp, __restore] = withAsyncContext(() => useFetch("/api/orders", { query: { page: page.value }, watch: [page] }, "$-5AfRAlzgG")), __temp = await __temp, __restore(), __temp);

@@ -1,5 +1,6 @@
 import { c as defineEventHandler, g as readBody, e as createError } from '../../../_/nitro.mjs';
 import { U as User } from '../../../_/user.model.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -107,8 +108,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'mongoose';
 import 'argon2';

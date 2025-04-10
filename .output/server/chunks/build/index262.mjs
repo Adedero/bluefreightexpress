@@ -5,6 +5,7 @@ import { B as BaseStyle, R as Ripple, s as script$2, y as script$5 } from './ser
 import { style } from '@primeuix/styles/panel';
 import { resolveComponent, createElementBlock, openBlock, mergeProps, createElementVNode, createVNode, renderSlot, normalizeClass, createCommentVNode, toDisplayString, withCtx, createBlock, resolveDynamicComponent, Transition, withDirectives, vShow } from 'vue';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -111,8 +112,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

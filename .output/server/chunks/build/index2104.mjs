@@ -4,6 +4,7 @@ import { B as BaseStyle, y as script$2, I as unblockBodyScroll, J as blockBodySc
 import { style } from '@primeuix/styles/blockui';
 import { createElementBlock, openBlock, mergeProps, renderSlot } from 'vue';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -110,8 +111,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';

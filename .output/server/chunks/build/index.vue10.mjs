@@ -1,10 +1,11 @@
 import { _ as __nuxt_component_0 } from './server.mjs';
 import { _ as __nuxt_component_2 } from './package-tracker.vue.mjs';
-import { withCtx, createVNode, useSSRContext } from 'vue';
+import { defineComponent, withCtx, createVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr } from 'vue/server-renderer';
-import { _ as _export_sfc } from './_plugin-vue_export-helper.mjs';
+import { u as useHead } from './v3.mjs';
 import { _ as _sfc_main$1, a as _sfc_main$2 } from './affiliates.vue2.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -112,8 +113,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
@@ -127,71 +126,79 @@ import '@primeuix/utils/zindex';
 import './my-button.vue.mjs';
 import './index2117.mjs';
 import '@iconify/utils/lib/css/icon';
-import './v3.mjs';
+import './asyncData.mjs';
+import './_plugin-vue_export-helper.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'unhead/utils';
 import 'devalue';
 import 'unhead/plugins';
-import './asyncData.mjs';
 
 const _imports_0 = "" + __buildAssetsURL("map.BZ4e9yGq.jpg");
 
-const _sfc_main = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLayout = __nuxt_component_0;
-  const _component_SubtitleText = _sfc_main$1;
-  const _component_PackageTracker = __nuxt_component_2;
-  const _component_Affiliates = _sfc_main$2;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
-  _push(ssrRenderComponent(_component_NuxtLayout, { name: "main-default" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`<section class="w-screen h-[28rem] relative flex items-center gap-16 px-4 lg:px-24"${_scopeId}><div class="text-white flex flex-col gap-6"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_SubtitleText, {
-          text: "Package Tracker",
-          dark: ""
-        }, null, _parent2, _scopeId));
-        _push2(`<h1 class="rubik text-4xl md:text-6xl font-bold text-white text-balance"${_scopeId}> Track </h1><p class="font-medium max-w-[36rem]"${_scopeId}> Follow up on your packages with our secure and reliable tracking system. </p></div><div class="w-full h-full absolute left-0 bottom-0 -z-[9] bg-gradient-to-r from-primary-500/50 to-transparent"${_scopeId}></div><img${ssrRenderAttr("src", _imports_0)} class="w-full h-full object-cover object-top absolute left-0 bottom-0 -z-10"${_scopeId}></section><div class="mb-20"${_scopeId}>`);
-        _push2(ssrRenderComponent(_component_PackageTracker, null, null, _parent2, _scopeId));
-        _push2(`</div>`);
-        _push2(ssrRenderComponent(_component_Affiliates, null, null, _parent2, _scopeId));
-      } else {
-        return [
-          createVNode("section", { class: "w-screen h-[28rem] relative flex items-center gap-16 px-4 lg:px-24" }, [
-            createVNode("div", { class: "text-white flex flex-col gap-6" }, [
-              createVNode(_component_SubtitleText, {
-                text: "Package Tracker",
-                dark: ""
-              }),
-              createVNode("h1", { class: "rubik text-4xl md:text-6xl font-bold text-white text-balance" }, " Track "),
-              createVNode("p", { class: "font-medium max-w-[36rem]" }, " Follow up on your packages with our secure and reliable tracking system. ")
-            ]),
-            createVNode("div", { class: "w-full h-full absolute left-0 bottom-0 -z-[9] bg-gradient-to-r from-primary-500/50 to-transparent" }),
-            createVNode("img", {
-              src: _imports_0,
-              class: "w-full h-full object-cover object-top absolute left-0 bottom-0 -z-10"
-            })
-          ]),
-          createVNode("div", { class: "mb-20" }, [
-            createVNode(_component_PackageTracker)
-          ]),
-          createVNode(_component_Affiliates)
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div>`);
-}
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useHead({
+      title: "Track"
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLayout = __nuxt_component_0;
+      const _component_SubtitleText = _sfc_main$1;
+      const _component_PackageTracker = __nuxt_component_2;
+      const _component_Affiliates = _sfc_main$2;
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      _push(ssrRenderComponent(_component_NuxtLayout, { name: "main-default" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`<section class="w-screen h-[28rem] relative flex items-center gap-16 px-4 lg:px-24"${_scopeId}><div class="text-white flex flex-col gap-6"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_SubtitleText, {
+              text: "Package Tracker",
+              dark: ""
+            }, null, _parent2, _scopeId));
+            _push2(`<h1 class="rubik text-4xl md:text-6xl font-bold text-white text-balance"${_scopeId}> Track </h1><p class="font-medium max-w-[36rem]"${_scopeId}> Follow up on your packages with our secure and reliable tracking system. </p></div><div class="w-full h-full absolute left-0 bottom-0 -z-[9] bg-gradient-to-r from-primary-500/50 to-transparent"${_scopeId}></div><img${ssrRenderAttr("src", _imports_0)} class="w-full h-full object-cover object-top absolute left-0 bottom-0 -z-10"${_scopeId}></section><div class="mb-20"${_scopeId}>`);
+            _push2(ssrRenderComponent(_component_PackageTracker, null, null, _parent2, _scopeId));
+            _push2(`</div>`);
+            _push2(ssrRenderComponent(_component_Affiliates, null, null, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode("section", { class: "w-screen h-[28rem] relative flex items-center gap-16 px-4 lg:px-24" }, [
+                createVNode("div", { class: "text-white flex flex-col gap-6" }, [
+                  createVNode(_component_SubtitleText, {
+                    text: "Package Tracker",
+                    dark: ""
+                  }),
+                  createVNode("h1", { class: "rubik text-4xl md:text-6xl font-bold text-white text-balance" }, " Track "),
+                  createVNode("p", { class: "font-medium max-w-[36rem]" }, " Follow up on your packages with our secure and reliable tracking system. ")
+                ]),
+                createVNode("div", { class: "w-full h-full absolute left-0 bottom-0 -z-[9] bg-gradient-to-r from-primary-500/50 to-transparent" }),
+                createVNode("img", {
+                  src: _imports_0,
+                  class: "w-full h-full object-cover object-top absolute left-0 bottom-0 -z-10"
+                })
+              ]),
+              createVNode("div", { class: "mb-20" }, [
+                createVNode(_component_PackageTracker)
+              ]),
+              createVNode(_component_Affiliates)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div>`);
+    };
+  }
+});
+
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/track/index.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
+export { _sfc_main as default };
 //# sourceMappingURL=index.vue10.mjs.map

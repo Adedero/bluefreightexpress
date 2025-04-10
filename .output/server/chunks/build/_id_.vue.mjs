@@ -9,11 +9,14 @@ import script$2 from './index261.mjs';
 import { a as script, s as script$1, b as useRoute, u as useToast, c as useConfirm, d as createError, n as navigateTo } from './server.mjs';
 import { ssrRenderAttrs, ssrRenderSlot, ssrRenderComponent, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import random from 'random-string-generator';
-import { _ as _sfc_main$2, o as orderStatuses, f as freightModes, d as deliveryModes, t as trackingUpdateSeverities } from './index.mjs';
+import { o as orderStatuses, f as freightModes, d as deliveryModes, t as trackingUpdateSeverities } from './index.mjs';
+import { u as useHead } from './v3.mjs';
 import { u as useFetch } from './fetch.mjs';
 import { u as useErrorToast } from './use-error-toast.mjs';
+import { _ as _sfc_main$2 } from './location-picker.vue2.mjs';
 import { u as useDateFormat } from './index16.mjs';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -121,8 +124,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import '@primeuix/utils';
 import './index3.mjs';
@@ -150,6 +151,12 @@ import '@iconify/vue';
 import '@primeuix/styles/base';
 import 'mongoose';
 import '@primeuix/utils/uuid';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'unhead/utils';
+import 'devalue';
+import 'unhead/plugins';
 import './asyncData.mjs';
 
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
@@ -253,6 +260,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     let __temp, __restore;
     const route = useRoute();
     const { id } = route.params;
+    useHead({
+      title: `Order - ${id.toString()}`
+    });
     const toast = useToast();
     const confirm = useConfirm();
     const { data: order } = ([__temp, __restore] = withAsyncContext(() => useFetch(`/api/orders/${id.toString()}`, "$viz9LMEN1w")), __temp = await __temp, __restore(), __temp);
@@ -894,7 +904,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 modelValue: unref(updatedOrder).destination.name,
                 "onUpdate:modelValue": ($event) => unref(updatedOrder).destination.name = $event,
                 modelModifiers: { trim: true },
-                placeholder: "e.g. BFE Warehouse",
+                placeholder: "e.g. NPE Warehouse",
                 fluid: ""
               }, null, _parent2, _scopeId));
               _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId}><label${_scopeId}>City <span class="text-red-500"${_scopeId}>*</span></label>`);
@@ -1008,7 +1018,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                         modelValue: unref(updatedOrder).destination.name,
                         "onUpdate:modelValue": ($event) => unref(updatedOrder).destination.name = $event,
                         modelModifiers: { trim: true },
-                        placeholder: "e.g. BFE Warehouse",
+                        placeholder: "e.g. NPE Warehouse",
                         fluid: ""
                       }, null, 8, ["modelValue", "onUpdate:modelValue"])
                     ]),
@@ -1222,7 +1232,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   modelValue: item.location.name,
                   "onUpdate:modelValue": ($event) => item.location.name = $event,
                   modelModifiers: { trim: true },
-                  placeholder: "e.g. BFE Warehouse",
+                  placeholder: "e.g. NPE Warehouse",
                   fluid: ""
                 }, null, _parent2, _scopeId));
                 _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId}><label${_scopeId}>City <span class="text-red-500"${_scopeId}>*</span></label>`);
@@ -1416,7 +1426,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                             modelValue: item.location.name,
                             "onUpdate:modelValue": ($event) => item.location.name = $event,
                             modelModifiers: { trim: true },
-                            placeholder: "e.g. BFE Warehouse",
+                            placeholder: "e.g. NPE Warehouse",
                             fluid: ""
                           }, null, 8, ["modelValue", "onUpdate:modelValue"])
                         ]),

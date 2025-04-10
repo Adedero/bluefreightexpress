@@ -10,6 +10,11 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap'
         }
+      ],
+      meta: [
+        { name: 'description', content: 'Next Port Express offers fast and reliable shipping services for your logistics needs. Get your products delivered safely and on time.' },
+        { name: 'keywords', content: 'shipping, logistics, fast shipping, reliable shipping, next port, express delivery, international shipping' },
+        { name: 'author', content: 'Next Port Express' }
       ]
     }
   },
@@ -19,30 +24,18 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [{ prefix: 'my-icon', dir: './assets/icons' }]
   },
-  modules: [
-    '@primevue/nuxt-module',
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
-    'nuxt-auth-utils',
-    ['nuxt-mail', {
-      message: {
-        from: 'Blue Freight Express',
-        to: process.env.EMAIL_USER
-      },
-      smtp: {
-        host: process.env.EMAIL_HOST,
-        port: 587,
-        secure: false,
-        service: process.env.EMAIL_SERVICE,
-        auth: {
-          user: process.env.EMAIL_USER,
-        password: process.env.EMAIL_PASSWORD
-        }
-      }
-    }]
-  ],
+  modules: ['@primevue/nuxt-module', '@nuxt/image', '@nuxt/icon', '@vueuse/nuxt', '@nuxtjs/tailwindcss', 'nuxt-auth-utils','nuxt-nodemailer'],
+  nodemailer: {
+    from: `"Next Port Express" <${process.env.EMAIL_USER}>`,
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT || 0) || 587,
+    secure: true,
+    service: process.env.EMAIL_SERVICE,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD
+    }
+  },
   pages: true,
   plugins: [
     '~/plugins/mongodb.server'

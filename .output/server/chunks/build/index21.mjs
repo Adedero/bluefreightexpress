@@ -1,4 +1,4 @@
-import { v as script$1 } from './server.mjs';
+import { p as script$1 } from './server.mjs';
 import { createElementBlock, openBlock, mergeProps, createElementVNode } from 'vue';
 
 var script = {

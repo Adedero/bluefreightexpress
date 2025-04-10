@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import orgData from '~/data/org';
+import { site } from '~/data';
 
+useHead({
+  title: 'Contact'
+})
 </script>
 
 <template>
@@ -39,7 +42,7 @@ import orgData from '~/data/org';
                 <Icon name="lucide:mail" size="1.75rem" />
               </div>
               <p class="text-sm font-medium text-center">
-                {{ orgData.email }}
+                {{ site.email }}
               </p>
             </div>
             
@@ -48,7 +51,7 @@ import orgData from '~/data/org';
                 <Icon name="lucide:clock" size="1.75rem" />
               </div>
               <p class="text-sm font-medium text-center whitespace-pre-wrap">
-                {{ orgData.openHours }}
+                {{ site.openHours }}
               </p>
             </div>
           </div>

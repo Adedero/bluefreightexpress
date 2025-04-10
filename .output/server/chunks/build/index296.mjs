@@ -3,6 +3,7 @@ import { B as BaseStyle, x as script$2, R as Ripple, y as script$3 } from './ser
 import { style } from '@primeuix/styles/message';
 import { resolveComponent, resolveDirective, createBlock, openBlock, Transition, mergeProps, withCtx, withDirectives, createElementVNode, renderSlot, createElementBlock, createCommentVNode, normalizeClass, resolveDynamicComponent, vShow } from 'vue';
 import '../_/nitro.mjs';
+import 'nodemailer';
 import 'node:crypto';
 import 'node:http';
 import 'node:https';
@@ -109,8 +110,6 @@ import 'node:url';
 import '@iconify/utils';
 import 'consola';
 import 'node:path';
-import 'nodemailer';
-import '@dword-design/functions';
 import 'ipx';
 import 'vue-router';
 import '@iconify/vue';
