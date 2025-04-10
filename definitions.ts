@@ -1,4 +1,4 @@
-import type { Collection, ObjectId } from "mongoose"
+import type { ObjectId } from "mongoose"
 
 export type TUser = {
   name: string
@@ -50,6 +50,7 @@ export type TOrder = {
     lng: number
   },
   estimatedDelivery: Date | string
+  deliveredAt?: Date | string
   createdAt: Date | string
   updatedAt: Date | string
 }

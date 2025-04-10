@@ -19,7 +19,30 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [{ prefix: 'my-icon', dir: './assets/icons' }]
   },
-  modules: ['@primevue/nuxt-module', '@nuxt/image', '@nuxt/icon', '@vueuse/nuxt', '@nuxtjs/tailwindcss', 'nuxt-auth-utils'],
+  modules: [
+    '@primevue/nuxt-module',
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    'nuxt-auth-utils',
+    ['nuxt-mail', {
+      message: {
+        from: 'Blue Freight Express',
+        to: process.env.EMAIL_USER
+      },
+      smtp: {
+        host: process.env.EMAIL_HOST,
+        port: 587,
+        secure: false,
+        service: process.env.EMAIL_SERVICE,
+        auth: {
+          user: process.env.EMAIL_USER,
+        password: process.env.EMAIL_PASSWORD
+        }
+      }
+    }]
+  ],
   pages: true,
   plugins: [
     '~/plugins/mongodb.server'

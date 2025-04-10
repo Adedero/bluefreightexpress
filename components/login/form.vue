@@ -19,22 +19,23 @@ const logIn = async () => {
   if (!result.value.success) return
 
   loading.value = true
-  const { error } = await useFetch('/api/auth/login', { method: 'POST', body: credentials.value })
-  loading.value = false
+  try {
+    await $fetch('/api/auth/login', { method: 'POST', body: credentials.value })
 
-  if (error.value) {
-    useErrorToast(error.value, toast)
-    return
-  }
-  
-  await refreshSession()
+    await refreshSession()
 
-  const { redirect } = route.query as { redirect: string }
-  if (redirect) {
-    await navigateTo(redirect)
-    return
+    const { redirect } = route.query as { redirect: string }
+    if (redirect) {
+      await navigateTo(redirect)
+      return
+    }
+
+    await navigateTo('/admin')
+  } catch (error) {
+    useErrorToast(error, toast)
+  } finally {
+    loading.value = false
   }
-  await navigateTo('/admin')
 }
 </script>
 

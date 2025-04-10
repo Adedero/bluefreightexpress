@@ -1,14 +1,10 @@
-//Arrange tracking updates order to be from latest
-//check if email is being changed and if that email already exists, throw error
-//remove _id fields from all elements in items and updates
-
 import Order from "~/server/models/order.model"
 import User from "~/server/models/user.model"
-import type { TOrder, TUser } from "~/definitions"
+import type { TOrder } from "~/definitions"
 
 export default defineEventHandler(async (event) => {
   await requireUserSession(event)
-  
+
   const id = getRouterParam(event, 'id')
   const order = await readBody(event)
 

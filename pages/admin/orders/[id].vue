@@ -213,6 +213,15 @@ const shouldDisableTrackingUpdateSaveBtn = computed(() => {
   
   return !hasAllRequiredFields || !hasChanged;
 });
+
+
+//Copy tracking number
+const isCopied = ref<boolean>(false)
+const copyTrackingNumber = async () => {
+  await navigator.clipboard.writeText(order.value!.trackingNumber)
+  isCopied.value = true
+  setTimeout(() => isCopied.value = false, 3000)
+}
 </script>
 
 <template>
@@ -232,6 +241,14 @@ const shouldDisableTrackingUpdateSaveBtn = computed(() => {
           </div>
         </PrimePopover>
       </header>
+
+      <div class="mt-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <p>Tracking Number: </p>
+          <p class="font-semibold">{{ order.trackingNumber }}</p>
+          <PrimeButton @click="copyTrackingNumber" :label="isCopied ? 'Copied' : 'Copy'" :icon="isCopied ? 'pi pi-check' : 'pi pi-copy'" size="small" severity="secondary" />
+        </div>
+      </div>
 
       <!-- Order body -->
       <div class="mt-4 font-rubik font-normal grid gap-8">

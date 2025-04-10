@@ -62,7 +62,7 @@ function getComputedSeverityStyles(): { icon: string, color: string } {
         <Icon :name="getComputedSeverityStyles().icon" />
       </div>
       <div class="w-full">
-        <p class="font-semibold text-primary-500">{{ update.location }}</p>
+        <p class="font-semibold text-primary-500">{{ update.location.address }}</p>
         <p class="text-sm text-slate-500">{{ update.comment }}</p>
 
         <div class="mt-2 grid gap-2 md:w-full md:flex md:flex-wrap md:justify-between">

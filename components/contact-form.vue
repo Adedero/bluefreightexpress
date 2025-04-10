@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { z, type SafeParseReturnType } from 'zod'
+import { useMail } from '#imports'
+
+const toast = useToast()
+const mail = useMail()
 
 const form = useTemplateRef('contact-form')
 
@@ -25,11 +29,50 @@ const Schema = z.object({
 })
 
 const validationResult = ref<SafeParseReturnType<Contact, Contact> | null>(null)
+
+const loading = ref<boolean>(false)
+
 const submitForm = async () => {
   validationResult.value = await Schema.safeParseAsync(contact.value)
   if (!validationResult.value.success) {
     form.value?.scrollIntoView({ behavior: 'smooth' })
     return
+  }
+  const { data } = validationResult.value
+
+  const html = `
+  <p style="margin: 0 0 1rem 0">You have a new contact request from your website.</p>
+  <p>Name: <span style="font-weight: 600">${data.name}</span></p>
+  <p>Email: <span style="font-weight: 600">${data.email}</span></p>
+  <p>Phone Number: <span style="font-weight: 600">${data.phoneNumber}</span></p>
+  <p>Country: <span style="font-weight: 600">${data.country}</span></p>
+  <p>City: <span style="font-weight: 600">${data.city}</span></p>
+  <p>Subject: <span style="font-weight: 600">${data.subject}</span></p>
+  <p>Message: <span style="font-weight: 600">${data.message}</span></p>
+  `
+  loading.value = true
+  try {
+    await mail({
+      subject: 'Contact Request',
+      html
+    })
+    toast.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Your message has been sent successfully',
+      life: 3000
+    })
+    contact.value = {}
+  } catch (error) {
+    useErrorToast(error, toast)
+  } finally {
+    loading.value = false
+  }
+}
+
+const handleCaptchaSubmit = (value: boolean) => {
+  if (value) {
+    submitForm()
   }
 }
 </script>
@@ -93,7 +136,9 @@ const submitForm = async () => {
     </div>
 
     <div class="flex items-center justify-center md:col-span-2 mt-4">
-      <MyButton @click="submitForm" variant="secondary" text="Send Message" icon="lucide:send" />
+      <Captcha @submit="handleCaptchaSubmit">
+        <MyButton :loading variant="secondary" text="Send Message" icon="lucide:send" />
+      </Captcha>
     </div>
   </div>
 </template>
