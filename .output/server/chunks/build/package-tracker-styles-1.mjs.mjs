@@ -1,4 +1,0 @@
-const packageTracker_vue_vue_type_style_index_0_scoped_a681287e_lang = ".tracking-id-input[data-v-a681287e]{background-color:transparent;border:1px solid var(--color-primary-500);color:var(--color-primary-500);font-weight:500;outline:none;padding:.8rem 1rem}.tracking-btn[data-v-a681287e]{background-color:var(--color-primary-500);color:#fff;font-weight:600;padding:.8rem 2rem;transition:2ms ease-out}.tracking-btn[data-v-a681287e]:hover{background-color:var(--accent-color);color:var(--color-primary-500)}.tracking-btn[data-v-a681287e]:disabled{cursor:not-allowed}.tracking-btn[data-v-a681287e]:disabled,.tracking-btn[data-v-a681287e]:disabled:hover{background-color:var(--color-primary-400);color:var(--color-primary-100)}";
-
-export { packageTracker_vue_vue_type_style_index_0_scoped_a681287e_lang as p };
-//# sourceMappingURL=package-tracker-styles-1.mjs.mjs.map

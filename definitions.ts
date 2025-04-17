@@ -11,6 +11,7 @@ export type TOrder = {
   user: ObjectId | TUser
   orderId: string
   trackingNumber: string
+  priority: 'low' | 'medium' | 'high'
   freightMode: 'air' | 'ocean' | 'road'
   deliveryMode: 'home' | 'pickup station'
   status: 'processing' | 'shipped' | 'in transit' | 'delivered' | 'cancelled'
