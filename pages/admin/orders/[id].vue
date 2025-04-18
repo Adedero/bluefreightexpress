@@ -340,7 +340,7 @@ const copyTrackingNumber = async () => {
               />
             </div>
             <div v-for="item, index in updatedOrder.items" :key="item._id">
-              <div class="border rounded-lg p-2">
+              <div class="border rounded-lg bg-white p-2">
                 <div class="flex items-center justify-end">
                   <PrimeButton
                     @click="removeItem(item._id)"
@@ -524,7 +524,7 @@ const copyTrackingNumber = async () => {
 
          <!-- Tracking Updates -->
          <PrimeFieldset legend="5. Tracking Updates" toggleable collapsed>
-          <section class="bg-[--p-surface-50] rounded-md p-2 grid gap-4">
+          <section class="bg-[--p-surface-50] rounded-md p-2 grid gap-4 relative">
             <div>
               <PrimeButton
                 @click="addTrackingUpdate"
@@ -534,104 +534,113 @@ const copyTrackingNumber = async () => {
               />
             </div>
 
-            <div v-for="item, index in updatedOrder.trackingUpdates" :key="item._id"  class="border rounded-lg p-2 grid gap-4">
-              <div>
-                <div class="flex items-center justify-between">
-                  <p class="font-semibold">
-                    {{ index + 1 }}. {{ useDateFormat(item.timestamp, 'DD MMM, YYYY hh:mm a') }}
-                  </p>
-
-                  <div class="flex items-center gap-2">
+            <div class="grid gap-12">
+              <PrimePanel
+                v-for="item, index in updatedOrder.trackingUpdates"
+                :key="item._id"
+                toggleable
+                :header="`${index + 1}. ${useDateFormat(item.timestamp, 'DD MMM, YYYY hh:mm a').value}`"
+              >
+                <template #icons>
+                  <div class="inline-flex items-center gap-2 mr-1">
                     <PrimeButton
                       @click="resetTrackingUpdate(item._id)"
                       severity="secondary"
                       icon="pi pi-replay"
                       size="small"
+                      rounded
                     />
                     <PrimeButton
                       @click="removeTrackingUpdate(item._id)"
                       severity="danger"
                       icon="pi pi-trash"
                       size="small"
+                      rounded
                     />
                   </div>
+                </template>
+
+                <div>
+
+                   <PrimeDivider />
+
+                  <div class="grid md:grid-cols-3 gap-2">
+                    <div class="grid form-control">
+                      <label>Status <span class="text-red-500">*</span></label>
+                      <PrimeInputText v-model.trim="item.status" disabled fluid />
+                    </div>
+
+                    <div class="grid form-control">
+                      <label>Severity <span class="text-red-500">*</span></label>
+                      <PrimeSelect v-model="item.severity" :options="trackingUpdateSeverities" />
+                    </div>
+
+                    <div class="grid form-control">
+                      <label>Timestamp <span class="text-red-500">*</span></label>
+                      <PrimeDatePicker v-model="item.timestamp" showTime hourFormat="12" date-format="dd M, yy" fluid />
+                    </div>
+                  </div>
+
+                  <div class="grid form-control md:col-span-3">
+                    <label>Comment <span class="text-red-500">*</span></label>
+                    <PrimeTextarea v-model.trim="item.comment" rows="3" class="resize-none" fluid />
+                  </div>
+                </div>
+
+                <p class="font-semibold mt-5">Location Data</p>
+
+                <div class="w-fit">
+                  <LocationPickerDialog @location-picked="(location: PickedLocation) => onLocationPicked(item, 'location', location)">
+                    <PrimeButton label="Search or click destination on map" outlined icon="pi pi-map" />
+                  </LocationPickerDialog>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-2 mt-5">
+                  <div class="grid form-control md:col-span-12 lg:col-span-6">
+                    <label>Address <span class="text-red-500">*</span></label>
+                    <PrimeInputText v-model.trim="item.location.address" fluid />
+                  </div>
+
+                  <div class="grid form-control md:col-span-6 lg:col-span-6">
+                    <label>Name <small>(optional)</small></label>
+                    <PrimeInputText v-model.trim="item.location.name" placeholder="e.g. NPE Warehouse" fluid />
+                  </div>
                   
-                </div>
-                <div class="grid md:grid-cols-3 gap-2">
-                  <div class="grid form-control">
-                    <label>Status <span class="text-red-500">*</span></label>
-                    <PrimeInputText v-model.trim="item.status" disabled fluid />
+                  <div class="grid form-control md:col-span-6 lg:col-span-4">
+                    <label>City <span class="text-red-500">*</span></label>
+                    <PrimeInputText v-model.trim="item.location.city" fluid />
                   </div>
 
-                  <div class="grid form-control">
-                    <label>Severity <span class="text-red-500">*</span></label>
-                    <PrimeSelect v-model="item.severity" :options="trackingUpdateSeverities" />
+                  <div class="grid form-control md:col-span-6 lg:col-span-4">
+                    <label>State or Region <span class="text-red-500">*</span></label>
+                    <PrimeInputText v-model.trim="item.location.state" fluid />
                   </div>
 
-                  <div class="grid form-control">
-                    <label>Timestamp <span class="text-red-500">*</span></label>
-                    <PrimeDatePicker v-model="item.timestamp" showTime hourFormat="12" date-format="dd M, yy" fluid />
+                  <div class="grid form-control md:col-span-6 lg:col-span-4">
+                    <label>Country <span class="text-red-500">*</span></label>
+                    <PrimeInputText v-model.trim="item.location.country" fluid />
+                  </div>
+
+                  <div class="grid form-control md:col-span-4 lg:col-span-4">
+                    <label>Country Code<span class="text-red-500">*</span></label>
+                    <PrimeInputText v-model.trim="item.location.countryCode" fluid />
+                  </div>
+
+                  <div class="grid form-control md:col-span-4 lg:col-span-4">
+                    <label>Latitude<span class="text-red-500">*</span></label>
+                    <PrimeInputNumber v-model="item.location.lat" :min="-90" :max="90" :grouping="false" fluid />
+                  </div>
+
+                  <div class="grid form-control md:col-span-4 lg:col-span-4">
+                    <label>Longitude<span class="text-red-500">*</span></label>
+                    <PrimeInputNumber v-model="item.location.lng" :min="-180" :max="180" :grouping="false" fluid />
                   </div>
                 </div>
 
-                <div class="grid form-control md:col-span-3">
-                  <label>Comment <span class="text-red-500">*</span></label>
-                  <PrimeTextarea v-model.trim="item.comment" rows="3" class="resize-none" fluid />
-                </div>
-              </div>
-              
-              <p class="font-semibold">Location Data</p>
-
-              <div class="w-fit">
-                <LocationPickerDialog @location-picked="(location: PickedLocation) => onLocationPicked(item, 'location', location)">
-                  <PrimeButton label="Search or click destination on map" outlined icon="pi pi-map" />
-                </LocationPickerDialog>
-              </div>
-
-              <div class="grid md:grid-cols-12 gap-2">
-                <div class="grid form-control md:col-span-12 lg:col-span-6">
-                  <label>Address <span class="text-red-500">*</span></label>
-                  <PrimeInputText v-model.trim="item.location.address" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-6 lg:col-span-6">
-                  <label>Name <small>(optional)</small></label>
-                  <PrimeInputText v-model.trim="item.location.name" placeholder="e.g. NPE Warehouse" fluid />
-                </div>
-                
-                <div class="grid form-control md:col-span-6 lg:col-span-4">
-                  <label>City <span class="text-red-500">*</span></label>
-                  <PrimeInputText v-model.trim="item.location.city" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-6 lg:col-span-4">
-                  <label>State or Region <span class="text-red-500">*</span></label>
-                  <PrimeInputText v-model.trim="item.location.state" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-6 lg:col-span-4">
-                  <label>Country <span class="text-red-500">*</span></label>
-                  <PrimeInputText v-model.trim="item.location.country" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-4 lg:col-span-4">
-                  <label>Country Code<span class="text-red-500">*</span></label>
-                  <PrimeInputText v-model.trim="item.location.countryCode" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-4 lg:col-span-4">
-                  <label>Latitude<span class="text-red-500">*</span></label>
-                  <PrimeInputNumber v-model="item.location.lat" :min="-90" :max="90" :grouping="false" fluid />
-                </div>
-
-                <div class="grid form-control md:col-span-4 lg:col-span-4">
-                  <label>Longitude<span class="text-red-500">*</span></label>
-                  <PrimeInputNumber v-model="item.location.lng" :min="-180" :max="180" :grouping="false" fluid />
-                </div>
-              </div>
+              </PrimePanel>
             </div>
 
-            <div class="flex justify-end gap-2">
+            <div class="flex justify-end gap-2 sticky bottom-4">
               <PrimeButton
                 @click="resetAllTrackingUpdates"
                 label="Reset"

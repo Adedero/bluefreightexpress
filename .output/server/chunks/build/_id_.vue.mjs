@@ -1,5 +1,7 @@
 import { _ as __nuxt_component_0 } from './nuxt-link.mjs';
 import { defineComponent, ref, unref, isRef, withCtx, createBlock, createCommentVNode, createVNode, openBlock, toDisplayString, withAsyncContext, watch, computed, mergeProps, Fragment, renderList, createTextVNode, useSSRContext } from 'vue';
+import script$9 from './index260.mjs';
+import script$8 from './index262.mjs';
 import script$7 from './index233.mjs';
 import script$6 from './index28.mjs';
 import script$5 from './index230.mjs';
@@ -126,6 +128,8 @@ import 'consola';
 import 'node:path';
 import 'ipx';
 import '@primeuix/utils';
+import './index20.mjs';
+import './index21.mjs';
 import './index3.mjs';
 import './index4.mjs';
 import '@primeuix/utils/dom';
@@ -144,8 +148,6 @@ import './index217.mjs';
 import './index252.mjs';
 import './index13.mjs';
 import './index14.mjs';
-import './index20.mjs';
-import './index21.mjs';
 import 'vue-router';
 import '@iconify/vue';
 import '@primeuix/styles/base';
@@ -457,6 +459,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const _component_PrimeDatePicker = script$6;
       const _component_LocationPickerDialog = _sfc_main$1;
       const _component_PrimeTextarea = script$7;
+      const _component_PrimePanel = script$8;
+      const _component_PrimeDivider = script$9;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-dvw p-4 pb-10" }, _attrs))}>`);
       if (unref(order)) {
         _push(`<div><header class="border rounded-xl shadow-sm px-2 py-2 flex items-center justify-between gap-2"><h1 class="font-rubik text-xl font-bold text-[--p-primary-color]"> Order (${ssrInterpolate(unref(order).status)}) ${ssrInterpolate(unref(order).orderId)}</h1><div class="flex items-center gap-2">`);
@@ -596,7 +600,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               _push2(`</div><!--[-->`);
               ssrRenderList(unref(updatedOrder).items, (item, index) => {
                 var _a;
-                _push2(`<div${_scopeId}><div class="border rounded-lg p-2"${_scopeId}><div class="flex items-center justify-end"${_scopeId}>`);
+                _push2(`<div${_scopeId}><div class="border rounded-lg bg-white p-2"${_scopeId}><div class="flex items-center justify-end"${_scopeId}>`);
                 _push2(ssrRenderComponent(_component_PrimeButton, {
                   onClick: ($event) => removeItem(item._id),
                   severity: "danger",
@@ -661,7 +665,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     return openBlock(), createBlock("div", {
                       key: item._id
                     }, [
-                      createVNode("div", { class: "border rounded-lg p-2" }, [
+                      createVNode("div", { class: "border rounded-lg bg-white p-2" }, [
                         createVNode("div", { class: "flex items-center justify-end" }, [
                           createVNode(_component_PrimeButton, {
                             onClick: ($event) => removeItem(item._id),
@@ -1160,147 +1164,364 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<section class="bg-[--p-surface-50] rounded-md p-2 grid gap-4"${_scopeId}><div${_scopeId}>`);
+              _push2(`<section class="bg-[--p-surface-50] rounded-md p-2 grid gap-4 relative"${_scopeId}><div${_scopeId}>`);
               _push2(ssrRenderComponent(_component_PrimeButton, {
                 onClick: addTrackingUpdate,
                 label: "Add Update",
                 size: "small",
                 icon: "pi pi-plus"
               }, null, _parent2, _scopeId));
-              _push2(`</div><!--[-->`);
+              _push2(`</div><div class="grid gap-12"${_scopeId}><!--[-->`);
               ssrRenderList(unref(updatedOrder).trackingUpdates, (item, index) => {
-                _push2(`<div class="border rounded-lg p-2 grid gap-4"${_scopeId}><div${_scopeId}><div class="flex items-center justify-between"${_scopeId}><p class="font-semibold"${_scopeId}>${ssrInterpolate(index + 1)}. ${ssrInterpolate(("useDateFormat" in _ctx ? _ctx.useDateFormat : unref(useDateFormat))(item.timestamp, "DD MMM, YYYY hh:mm a"))}</p><div class="flex items-center gap-2"${_scopeId}>`);
-                _push2(ssrRenderComponent(_component_PrimeButton, {
-                  onClick: ($event) => resetTrackingUpdate(item._id),
-                  severity: "secondary",
-                  icon: "pi pi-replay",
-                  size: "small"
-                }, null, _parent2, _scopeId));
-                _push2(ssrRenderComponent(_component_PrimeButton, {
-                  onClick: ($event) => removeTrackingUpdate(item._id),
-                  severity: "danger",
-                  icon: "pi pi-trash",
-                  size: "small"
-                }, null, _parent2, _scopeId));
-                _push2(`</div></div><div class="grid md:grid-cols-3 gap-2"${_scopeId}><div class="grid form-control"${_scopeId}><label${_scopeId}>Status <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.status,
-                  "onUpdate:modelValue": ($event) => item.status = $event,
-                  modelModifiers: { trim: true },
-                  disabled: "",
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control"${_scopeId}><label${_scopeId}>Severity <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeSelect, {
-                  modelValue: item.severity,
-                  "onUpdate:modelValue": ($event) => item.severity = $event,
-                  options: unref(trackingUpdateSeverities)
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control"${_scopeId}><label${_scopeId}>Timestamp <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeDatePicker, {
-                  modelValue: item.timestamp,
-                  "onUpdate:modelValue": ($event) => item.timestamp = $event,
-                  showTime: "",
-                  hourFormat: "12",
-                  "date-format": "dd M, yy",
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div></div><div class="grid form-control md:col-span-3"${_scopeId}><label${_scopeId}>Comment <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeTextarea, {
-                  modelValue: item.comment,
-                  "onUpdate:modelValue": ($event) => item.comment = $event,
-                  modelModifiers: { trim: true },
-                  rows: "3",
-                  class: "resize-none",
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div></div><p class="font-semibold"${_scopeId}>Location Data</p><div class="w-fit"${_scopeId}>`);
-                _push2(ssrRenderComponent(_component_LocationPickerDialog, {
-                  onLocationPicked: (location) => onLocationPicked(item, "location", location)
+                _push2(ssrRenderComponent(_component_PrimePanel, {
+                  key: item._id,
+                  toggleable: "",
+                  header: `${index + 1}. ${("useDateFormat" in _ctx ? _ctx.useDateFormat : unref(useDateFormat))(item.timestamp, "DD MMM, YYYY hh:mm a").value}`
                 }, {
-                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  icons: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
+                      _push3(`<div class="inline-flex items-center gap-2 mr-1"${_scopeId2}>`);
                       _push3(ssrRenderComponent(_component_PrimeButton, {
-                        label: "Search or click destination on map",
-                        outlined: "",
-                        icon: "pi pi-map"
+                        onClick: ($event) => resetTrackingUpdate(item._id),
+                        severity: "secondary",
+                        icon: "pi pi-replay",
+                        size: "small",
+                        rounded: ""
                       }, null, _parent3, _scopeId2));
+                      _push3(ssrRenderComponent(_component_PrimeButton, {
+                        onClick: ($event) => removeTrackingUpdate(item._id),
+                        severity: "danger",
+                        icon: "pi pi-trash",
+                        size: "small",
+                        rounded: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div>`);
                     } else {
                       return [
-                        createVNode(_component_PrimeButton, {
-                          label: "Search or click destination on map",
-                          outlined: "",
-                          icon: "pi pi-map"
-                        })
+                        createVNode("div", { class: "inline-flex items-center gap-2 mr-1" }, [
+                          createVNode(_component_PrimeButton, {
+                            onClick: ($event) => resetTrackingUpdate(item._id),
+                            severity: "secondary",
+                            icon: "pi pi-replay",
+                            size: "small",
+                            rounded: ""
+                          }, null, 8, ["onClick"]),
+                          createVNode(_component_PrimeButton, {
+                            onClick: ($event) => removeTrackingUpdate(item._id),
+                            severity: "danger",
+                            icon: "pi pi-trash",
+                            size: "small",
+                            rounded: ""
+                          }, null, 8, ["onClick"])
+                        ])
+                      ];
+                    }
+                  }),
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`<div${_scopeId2}>`);
+                      _push3(ssrRenderComponent(_component_PrimeDivider, null, null, _parent3, _scopeId2));
+                      _push3(`<div class="grid md:grid-cols-3 gap-2"${_scopeId2}><div class="grid form-control"${_scopeId2}><label${_scopeId2}>Status <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.status,
+                        "onUpdate:modelValue": ($event) => item.status = $event,
+                        modelModifiers: { trim: true },
+                        disabled: "",
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control"${_scopeId2}><label${_scopeId2}>Severity <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeSelect, {
+                        modelValue: item.severity,
+                        "onUpdate:modelValue": ($event) => item.severity = $event,
+                        options: unref(trackingUpdateSeverities)
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control"${_scopeId2}><label${_scopeId2}>Timestamp <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeDatePicker, {
+                        modelValue: item.timestamp,
+                        "onUpdate:modelValue": ($event) => item.timestamp = $event,
+                        showTime: "",
+                        hourFormat: "12",
+                        "date-format": "dd M, yy",
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div></div><div class="grid form-control md:col-span-3"${_scopeId2}><label${_scopeId2}>Comment <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeTextarea, {
+                        modelValue: item.comment,
+                        "onUpdate:modelValue": ($event) => item.comment = $event,
+                        modelModifiers: { trim: true },
+                        rows: "3",
+                        class: "resize-none",
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div></div><p class="font-semibold mt-5"${_scopeId2}>Location Data</p><div class="w-fit"${_scopeId2}>`);
+                      _push3(ssrRenderComponent(_component_LocationPickerDialog, {
+                        onLocationPicked: (location) => onLocationPicked(item, "location", location)
+                      }, {
+                        default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                          if (_push4) {
+                            _push4(ssrRenderComponent(_component_PrimeButton, {
+                              label: "Search or click destination on map",
+                              outlined: "",
+                              icon: "pi pi-map"
+                            }, null, _parent4, _scopeId3));
+                          } else {
+                            return [
+                              createVNode(_component_PrimeButton, {
+                                label: "Search or click destination on map",
+                                outlined: "",
+                                icon: "pi pi-map"
+                              })
+                            ];
+                          }
+                        }),
+                        _: 2
+                      }, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid md:grid-cols-12 gap-2 mt-5"${_scopeId2}><div class="grid form-control md:col-span-12 lg:col-span-6"${_scopeId2}><label${_scopeId2}>Address <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.address,
+                        "onUpdate:modelValue": ($event) => item.location.address = $event,
+                        modelModifiers: { trim: true },
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-6 lg:col-span-6"${_scopeId2}><label${_scopeId2}>Name <small${_scopeId2}>(optional)</small></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.name,
+                        "onUpdate:modelValue": ($event) => item.location.name = $event,
+                        modelModifiers: { trim: true },
+                        placeholder: "e.g. NPE Warehouse",
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId2}><label${_scopeId2}>City <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.city,
+                        "onUpdate:modelValue": ($event) => item.location.city = $event,
+                        modelModifiers: { trim: true },
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId2}><label${_scopeId2}>State or Region <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.state,
+                        "onUpdate:modelValue": ($event) => item.location.state = $event,
+                        modelModifiers: { trim: true },
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId2}><label${_scopeId2}>Country <span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.country,
+                        "onUpdate:modelValue": ($event) => item.location.country = $event,
+                        modelModifiers: { trim: true },
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId2}><label${_scopeId2}>Country Code<span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputText, {
+                        modelValue: item.location.countryCode,
+                        "onUpdate:modelValue": ($event) => item.location.countryCode = $event,
+                        modelModifiers: { trim: true },
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId2}><label${_scopeId2}>Latitude<span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputNumber, {
+                        modelValue: item.location.lat,
+                        "onUpdate:modelValue": ($event) => item.location.lat = $event,
+                        min: -90,
+                        max: 90,
+                        grouping: false,
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId2}><label${_scopeId2}>Longitude<span class="text-red-500"${_scopeId2}>*</span></label>`);
+                      _push3(ssrRenderComponent(_component_PrimeInputNumber, {
+                        modelValue: item.location.lng,
+                        "onUpdate:modelValue": ($event) => item.location.lng = $event,
+                        min: -180,
+                        max: 180,
+                        grouping: false,
+                        fluid: ""
+                      }, null, _parent3, _scopeId2));
+                      _push3(`</div></div>`);
+                    } else {
+                      return [
+                        createVNode("div", null, [
+                          createVNode(_component_PrimeDivider),
+                          createVNode("div", { class: "grid md:grid-cols-3 gap-2" }, [
+                            createVNode("div", { class: "grid form-control" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Status "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.status,
+                                "onUpdate:modelValue": ($event) => item.status = $event,
+                                modelModifiers: { trim: true },
+                                disabled: "",
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Severity "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeSelect, {
+                                modelValue: item.severity,
+                                "onUpdate:modelValue": ($event) => item.severity = $event,
+                                options: unref(trackingUpdateSeverities)
+                              }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
+                            ]),
+                            createVNode("div", { class: "grid form-control" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Timestamp "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeDatePicker, {
+                                modelValue: item.timestamp,
+                                "onUpdate:modelValue": ($event) => item.timestamp = $event,
+                                showTime: "",
+                                hourFormat: "12",
+                                "date-format": "dd M, yy",
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-3" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Comment "),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeTextarea, {
+                              modelValue: item.comment,
+                              "onUpdate:modelValue": ($event) => item.comment = $event,
+                              modelModifiers: { trim: true },
+                              rows: "3",
+                              class: "resize-none",
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ])
+                        ]),
+                        createVNode("p", { class: "font-semibold mt-5" }, "Location Data"),
+                        createVNode("div", { class: "w-fit" }, [
+                          createVNode(_component_LocationPickerDialog, {
+                            onLocationPicked: (location) => onLocationPicked(item, "location", location)
+                          }, {
+                            default: withCtx(() => [
+                              createVNode(_component_PrimeButton, {
+                                label: "Search or click destination on map",
+                                outlined: "",
+                                icon: "pi pi-map"
+                              })
+                            ]),
+                            _: 2
+                          }, 1032, ["onLocationPicked"])
+                        ]),
+                        createVNode("div", { class: "grid md:grid-cols-12 gap-2 mt-5" }, [
+                          createVNode("div", { class: "grid form-control md:col-span-12 lg:col-span-6" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Address "),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.address,
+                              "onUpdate:modelValue": ($event) => item.location.address = $event,
+                              modelModifiers: { trim: true },
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-6" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Name "),
+                              createVNode("small", null, "(optional)")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.name,
+                              "onUpdate:modelValue": ($event) => item.location.name = $event,
+                              modelModifiers: { trim: true },
+                              placeholder: "e.g. NPE Warehouse",
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("City "),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.city,
+                              "onUpdate:modelValue": ($event) => item.location.city = $event,
+                              modelModifiers: { trim: true },
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("State or Region "),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.state,
+                              "onUpdate:modelValue": ($event) => item.location.state = $event,
+                              modelModifiers: { trim: true },
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Country "),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.country,
+                              "onUpdate:modelValue": ($event) => item.location.country = $event,
+                              modelModifiers: { trim: true },
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Country Code"),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputText, {
+                              modelValue: item.location.countryCode,
+                              "onUpdate:modelValue": ($event) => item.location.countryCode = $event,
+                              modelModifiers: { trim: true },
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Latitude"),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputNumber, {
+                              modelValue: item.location.lat,
+                              "onUpdate:modelValue": ($event) => item.location.lat = $event,
+                              min: -90,
+                              max: 90,
+                              grouping: false,
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ]),
+                          createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                            createVNode("label", null, [
+                              createTextVNode("Longitude"),
+                              createVNode("span", { class: "text-red-500" }, "*")
+                            ]),
+                            createVNode(_component_PrimeInputNumber, {
+                              modelValue: item.location.lng,
+                              "onUpdate:modelValue": ($event) => item.location.lng = $event,
+                              min: -180,
+                              max: 180,
+                              grouping: false,
+                              fluid: ""
+                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                          ])
+                        ])
                       ];
                     }
                   }),
                   _: 2
                 }, _parent2, _scopeId));
-                _push2(`</div><div class="grid md:grid-cols-12 gap-2"${_scopeId}><div class="grid form-control md:col-span-12 lg:col-span-6"${_scopeId}><label${_scopeId}>Address <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.address,
-                  "onUpdate:modelValue": ($event) => item.location.address = $event,
-                  modelModifiers: { trim: true },
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-6"${_scopeId}><label${_scopeId}>Name <small${_scopeId}>(optional)</small></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.name,
-                  "onUpdate:modelValue": ($event) => item.location.name = $event,
-                  modelModifiers: { trim: true },
-                  placeholder: "e.g. NPE Warehouse",
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId}><label${_scopeId}>City <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.city,
-                  "onUpdate:modelValue": ($event) => item.location.city = $event,
-                  modelModifiers: { trim: true },
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId}><label${_scopeId}>State or Region <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.state,
-                  "onUpdate:modelValue": ($event) => item.location.state = $event,
-                  modelModifiers: { trim: true },
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-6 lg:col-span-4"${_scopeId}><label${_scopeId}>Country <span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.country,
-                  "onUpdate:modelValue": ($event) => item.location.country = $event,
-                  modelModifiers: { trim: true },
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId}><label${_scopeId}>Country Code<span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputText, {
-                  modelValue: item.location.countryCode,
-                  "onUpdate:modelValue": ($event) => item.location.countryCode = $event,
-                  modelModifiers: { trim: true },
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId}><label${_scopeId}>Latitude<span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputNumber, {
-                  modelValue: item.location.lat,
-                  "onUpdate:modelValue": ($event) => item.location.lat = $event,
-                  min: -90,
-                  max: 90,
-                  grouping: false,
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div><div class="grid form-control md:col-span-4 lg:col-span-4"${_scopeId}><label${_scopeId}>Longitude<span class="text-red-500"${_scopeId}>*</span></label>`);
-                _push2(ssrRenderComponent(_component_PrimeInputNumber, {
-                  modelValue: item.location.lng,
-                  "onUpdate:modelValue": ($event) => item.location.lng = $event,
-                  min: -180,
-                  max: 180,
-                  grouping: false,
-                  fluid: ""
-                }, null, _parent2, _scopeId));
-                _push2(`</div></div></div>`);
               });
-              _push2(`<!--]--><div class="flex justify-end gap-2"${_scopeId}>`);
+              _push2(`<!--]--></div><div class="flex justify-end gap-2 sticky bottom-4"${_scopeId}>`);
               _push2(ssrRenderComponent(_component_PrimeButton, {
                 onClick: resetAllTrackingUpdates,
                 label: "Reset",
@@ -1319,7 +1540,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               _push2(`</div></section>`);
             } else {
               return [
-                createVNode("section", { class: "bg-[--p-surface-50] rounded-md p-2 grid gap-4" }, [
+                createVNode("section", { class: "bg-[--p-surface-50] rounded-md p-2 grid gap-4 relative" }, [
                   createVNode("div", null, [
                     createVNode(_component_PrimeButton, {
                       onClick: addTrackingUpdate,
@@ -1328,205 +1549,213 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                       icon: "pi pi-plus"
                     })
                   ]),
-                  (openBlock(true), createBlock(Fragment, null, renderList(unref(updatedOrder).trackingUpdates, (item, index) => {
-                    return openBlock(), createBlock("div", {
-                      key: item._id,
-                      class: "border rounded-lg p-2 grid gap-4"
-                    }, [
-                      createVNode("div", null, [
-                        createVNode("div", { class: "flex items-center justify-between" }, [
-                          createVNode("p", { class: "font-semibold" }, toDisplayString(index + 1) + ". " + toDisplayString(("useDateFormat" in _ctx ? _ctx.useDateFormat : unref(useDateFormat))(item.timestamp, "DD MMM, YYYY hh:mm a")), 1),
-                          createVNode("div", { class: "flex items-center gap-2" }, [
+                  createVNode("div", { class: "grid gap-12" }, [
+                    (openBlock(true), createBlock(Fragment, null, renderList(unref(updatedOrder).trackingUpdates, (item, index) => {
+                      return openBlock(), createBlock(_component_PrimePanel, {
+                        key: item._id,
+                        toggleable: "",
+                        header: `${index + 1}. ${("useDateFormat" in _ctx ? _ctx.useDateFormat : unref(useDateFormat))(item.timestamp, "DD MMM, YYYY hh:mm a").value}`
+                      }, {
+                        icons: withCtx(() => [
+                          createVNode("div", { class: "inline-flex items-center gap-2 mr-1" }, [
                             createVNode(_component_PrimeButton, {
                               onClick: ($event) => resetTrackingUpdate(item._id),
                               severity: "secondary",
                               icon: "pi pi-replay",
-                              size: "small"
+                              size: "small",
+                              rounded: ""
                             }, null, 8, ["onClick"]),
                             createVNode(_component_PrimeButton, {
                               onClick: ($event) => removeTrackingUpdate(item._id),
                               severity: "danger",
                               icon: "pi pi-trash",
-                              size: "small"
+                              size: "small",
+                              rounded: ""
                             }, null, 8, ["onClick"])
                           ])
                         ]),
-                        createVNode("div", { class: "grid md:grid-cols-3 gap-2" }, [
-                          createVNode("div", { class: "grid form-control" }, [
-                            createVNode("label", null, [
-                              createTextVNode("Status "),
-                              createVNode("span", { class: "text-red-500" }, "*")
+                        default: withCtx(() => [
+                          createVNode("div", null, [
+                            createVNode(_component_PrimeDivider),
+                            createVNode("div", { class: "grid md:grid-cols-3 gap-2" }, [
+                              createVNode("div", { class: "grid form-control" }, [
+                                createVNode("label", null, [
+                                  createTextVNode("Status "),
+                                  createVNode("span", { class: "text-red-500" }, "*")
+                                ]),
+                                createVNode(_component_PrimeInputText, {
+                                  modelValue: item.status,
+                                  "onUpdate:modelValue": ($event) => item.status = $event,
+                                  modelModifiers: { trim: true },
+                                  disabled: "",
+                                  fluid: ""
+                                }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                              ]),
+                              createVNode("div", { class: "grid form-control" }, [
+                                createVNode("label", null, [
+                                  createTextVNode("Severity "),
+                                  createVNode("span", { class: "text-red-500" }, "*")
+                                ]),
+                                createVNode(_component_PrimeSelect, {
+                                  modelValue: item.severity,
+                                  "onUpdate:modelValue": ($event) => item.severity = $event,
+                                  options: unref(trackingUpdateSeverities)
+                                }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
+                              ]),
+                              createVNode("div", { class: "grid form-control" }, [
+                                createVNode("label", null, [
+                                  createTextVNode("Timestamp "),
+                                  createVNode("span", { class: "text-red-500" }, "*")
+                                ]),
+                                createVNode(_component_PrimeDatePicker, {
+                                  modelValue: item.timestamp,
+                                  "onUpdate:modelValue": ($event) => item.timestamp = $event,
+                                  showTime: "",
+                                  hourFormat: "12",
+                                  "date-format": "dd M, yy",
+                                  fluid: ""
+                                }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                              ])
                             ]),
-                            createVNode(_component_PrimeInputText, {
-                              modelValue: item.status,
-                              "onUpdate:modelValue": ($event) => item.status = $event,
-                              modelModifiers: { trim: true },
-                              disabled: "",
-                              fluid: ""
-                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            createVNode("div", { class: "grid form-control md:col-span-3" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Comment "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeTextarea, {
+                                modelValue: item.comment,
+                                "onUpdate:modelValue": ($event) => item.comment = $event,
+                                modelModifiers: { trim: true },
+                                rows: "3",
+                                class: "resize-none",
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ])
                           ]),
-                          createVNode("div", { class: "grid form-control" }, [
-                            createVNode("label", null, [
-                              createTextVNode("Severity "),
-                              createVNode("span", { class: "text-red-500" }, "*")
-                            ]),
-                            createVNode(_component_PrimeSelect, {
-                              modelValue: item.severity,
-                              "onUpdate:modelValue": ($event) => item.severity = $event,
-                              options: unref(trackingUpdateSeverities)
-                            }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
+                          createVNode("p", { class: "font-semibold mt-5" }, "Location Data"),
+                          createVNode("div", { class: "w-fit" }, [
+                            createVNode(_component_LocationPickerDialog, {
+                              onLocationPicked: (location) => onLocationPicked(item, "location", location)
+                            }, {
+                              default: withCtx(() => [
+                                createVNode(_component_PrimeButton, {
+                                  label: "Search or click destination on map",
+                                  outlined: "",
+                                  icon: "pi pi-map"
+                                })
+                              ]),
+                              _: 2
+                            }, 1032, ["onLocationPicked"])
                           ]),
-                          createVNode("div", { class: "grid form-control" }, [
-                            createVNode("label", null, [
-                              createTextVNode("Timestamp "),
-                              createVNode("span", { class: "text-red-500" }, "*")
+                          createVNode("div", { class: "grid md:grid-cols-12 gap-2 mt-5" }, [
+                            createVNode("div", { class: "grid form-control md:col-span-12 lg:col-span-6" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Address "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.address,
+                                "onUpdate:modelValue": ($event) => item.location.address = $event,
+                                modelModifiers: { trim: true },
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
                             ]),
-                            createVNode(_component_PrimeDatePicker, {
-                              modelValue: item.timestamp,
-                              "onUpdate:modelValue": ($event) => item.timestamp = $event,
-                              showTime: "",
-                              hourFormat: "12",
-                              "date-format": "dd M, yy",
-                              fluid: ""
-                            }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-6" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Name "),
+                                createVNode("small", null, "(optional)")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.name,
+                                "onUpdate:modelValue": ($event) => item.location.name = $event,
+                                modelModifiers: { trim: true },
+                                placeholder: "e.g. NPE Warehouse",
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("City "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.city,
+                                "onUpdate:modelValue": ($event) => item.location.city = $event,
+                                modelModifiers: { trim: true },
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("State or Region "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.state,
+                                "onUpdate:modelValue": ($event) => item.location.state = $event,
+                                modelModifiers: { trim: true },
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Country "),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.country,
+                                "onUpdate:modelValue": ($event) => item.location.country = $event,
+                                modelModifiers: { trim: true },
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Country Code"),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputText, {
+                                modelValue: item.location.countryCode,
+                                "onUpdate:modelValue": ($event) => item.location.countryCode = $event,
+                                modelModifiers: { trim: true },
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Latitude"),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputNumber, {
+                                modelValue: item.location.lat,
+                                "onUpdate:modelValue": ($event) => item.location.lat = $event,
+                                min: -90,
+                                max: 90,
+                                grouping: false,
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ]),
+                            createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
+                              createVNode("label", null, [
+                                createTextVNode("Longitude"),
+                                createVNode("span", { class: "text-red-500" }, "*")
+                              ]),
+                              createVNode(_component_PrimeInputNumber, {
+                                modelValue: item.location.lng,
+                                "onUpdate:modelValue": ($event) => item.location.lng = $event,
+                                min: -180,
+                                max: 180,
+                                grouping: false,
+                                fluid: ""
+                              }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                            ])
                           ])
                         ]),
-                        createVNode("div", { class: "grid form-control md:col-span-3" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Comment "),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeTextarea, {
-                            modelValue: item.comment,
-                            "onUpdate:modelValue": ($event) => item.comment = $event,
-                            modelModifiers: { trim: true },
-                            rows: "3",
-                            class: "resize-none",
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ])
-                      ]),
-                      createVNode("p", { class: "font-semibold" }, "Location Data"),
-                      createVNode("div", { class: "w-fit" }, [
-                        createVNode(_component_LocationPickerDialog, {
-                          onLocationPicked: (location) => onLocationPicked(item, "location", location)
-                        }, {
-                          default: withCtx(() => [
-                            createVNode(_component_PrimeButton, {
-                              label: "Search or click destination on map",
-                              outlined: "",
-                              icon: "pi pi-map"
-                            })
-                          ]),
-                          _: 2
-                        }, 1032, ["onLocationPicked"])
-                      ]),
-                      createVNode("div", { class: "grid md:grid-cols-12 gap-2" }, [
-                        createVNode("div", { class: "grid form-control md:col-span-12 lg:col-span-6" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Address "),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.address,
-                            "onUpdate:modelValue": ($event) => item.location.address = $event,
-                            modelModifiers: { trim: true },
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-6" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Name "),
-                            createVNode("small", null, "(optional)")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.name,
-                            "onUpdate:modelValue": ($event) => item.location.name = $event,
-                            modelModifiers: { trim: true },
-                            placeholder: "e.g. NPE Warehouse",
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("City "),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.city,
-                            "onUpdate:modelValue": ($event) => item.location.city = $event,
-                            modelModifiers: { trim: true },
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("State or Region "),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.state,
-                            "onUpdate:modelValue": ($event) => item.location.state = $event,
-                            modelModifiers: { trim: true },
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-6 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Country "),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.country,
-                            "onUpdate:modelValue": ($event) => item.location.country = $event,
-                            modelModifiers: { trim: true },
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Country Code"),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputText, {
-                            modelValue: item.location.countryCode,
-                            "onUpdate:modelValue": ($event) => item.location.countryCode = $event,
-                            modelModifiers: { trim: true },
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Latitude"),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputNumber, {
-                            modelValue: item.location.lat,
-                            "onUpdate:modelValue": ($event) => item.location.lat = $event,
-                            min: -90,
-                            max: 90,
-                            grouping: false,
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ]),
-                        createVNode("div", { class: "grid form-control md:col-span-4 lg:col-span-4" }, [
-                          createVNode("label", null, [
-                            createTextVNode("Longitude"),
-                            createVNode("span", { class: "text-red-500" }, "*")
-                          ]),
-                          createVNode(_component_PrimeInputNumber, {
-                            modelValue: item.location.lng,
-                            "onUpdate:modelValue": ($event) => item.location.lng = $event,
-                            min: -180,
-                            max: 180,
-                            grouping: false,
-                            fluid: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue"])
-                        ])
-                      ])
-                    ]);
-                  }), 128)),
-                  createVNode("div", { class: "flex justify-end gap-2" }, [
+                        _: 2
+                      }, 1032, ["header"]);
+                    }), 128))
+                  ]),
+                  createVNode("div", { class: "flex justify-end gap-2 sticky bottom-4" }, [
                     createVNode(_component_PrimeButton, {
                       onClick: resetAllTrackingUpdates,
                       label: "Reset",
