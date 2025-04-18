@@ -102,6 +102,7 @@ export default defineEventHandler(async (event) => {
   //order.totalPrice = order.items.reduce((acc: number, item: Record<string, any>) => acc + (item.quantity * item.unitPrice), 0)
 
   //Update order
+  orderToUpdate.priority = order.priority
   orderToUpdate.status = order.status
   orderToUpdate.freightMode = order.freightMode
   orderToUpdate.deliveryMode = order.deliveryMode

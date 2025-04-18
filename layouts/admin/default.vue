@@ -11,10 +11,10 @@ async function clearSession() {
 <template>
   <div>
     <header class="h-[3.5rem] border-b px-4 py-2 flex items-center justify-between gap-2">
-      <div class="flex items-center gap-1">
+      <NuxtLink to="/admin" class="flex items-center gap-1">
         <Logo color="#6366f1" />
         <p class="font-rubik font-semibold text-3xl text-indigo-500">NPE</p>
-      </div>
+      </NuxtLink>
 
       <div class="flex items-center gap-4">
         <div class="flex items-center gap-2">

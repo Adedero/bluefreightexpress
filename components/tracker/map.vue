@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import 'leaflet/dist/leaflet.css'
 import type { TOrder } from '~/definitions'
-//import { Map } from "leaflet"
-//import * as L from 'leaflet/dist/leaflet'
+import markerIcon2x from '~/assets/img/leaflet-marker-icon-2x.png';
+import markerIcon from '~/assets/img/leaflet-marker-icon.png';
+import markerShadow from '~/assets/img/leaflet-marker-shadow.png';
 
 interface Props {
   height?: string | number
   updates: TOrder['trackingUpdates']
 }
 const {
-  height = '500px',
+  height = '400px',
   updates
 } = defineProps<Props>()
 
@@ -20,6 +21,15 @@ onMounted(async () => {
   if (!el.value || !globalThis.window) return
   const coords: [number, number] = [updates[0].location.lat, updates[0].location.lng]
   const leaflet = await import("leaflet")
+
+  delete (leaflet.Icon.Default.prototype as any)._getIconUrl;
+  
+  leaflet.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow
+  });
+
   map.value = leaflet
     .map(el.value)
     .setView(coords, 10);

@@ -1,0 +1,1 @@
+const o=(t,s)=>{if(!t)return"";if(s)return t.split(/\s+/).map(e=>e.charAt(0).toUpperCase()+e.slice(1).toLowerCase()).join(" ");{const e=t.split(/\s+/);return e.length===0?"":e[0].charAt(0).toUpperCase()+e[0].slice(1).toLowerCase()+(e.length>1?" "+e.slice(1).join(" ").toLowerCase():"")}};export{o as t};

@@ -12,6 +12,8 @@ export const site = {
   openHours: 'Mon - Sat 9.00 - 18.00\nSunday Closed'
 }
 
+export const priorities: TOrder['priority'][] = ['low', 'medium', 'high']
+
 export const orderStatuses: TOrder['status'][] = ['processing', 'shipped', 'in transit', 'delivered', 'cancelled']
 
 export const freightModes: TOrder['freightMode'][] = ['air', 'ocean', 'road']

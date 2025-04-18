@@ -26,8 +26,12 @@ const computedTrackingUpdates = computed(() => {
             <Icon name="lucide:package-search" size="1.6rem" />
             <h4 class="rubik text-3xl font-bold">Shipment Tracking</h4>
           </div>
+
+          <div v-if="order.priority !== 'low'" class="mt-5">
+            <OrderPriorityMessage :priority="order.priority" />
+          </div>
           
-          <div class="mt-3 grid items-start gap-x-2 gap-y-4 lg:grid-cols-2">
+          <div class="mt-10 grid items-start gap-x-2 gap-y-4 lg:grid-cols-2">
             <div class="grid gap-1">
               <div class="flex gap-1 items-center">
                 <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
@@ -47,14 +51,21 @@ const computedTrackingUpdates = computed(() => {
                 <span class="font-semibold rubik">{{ order.orderId }}</span>
               </div>
 
-              <div class="">
+              <div class="flex gap-1 items-center">
+                <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
                 <span class="text-slate-500">Delivery Address: </span>
                 <span class="font-semibold rubik">{{ order.destination.address }}</span>
+              </div>
+
+              <div class="flex gap-1 items-center">
+                <div class="w-1.5 aspect-square bg-slate-500 rounded-full"></div>
+                <span class="text-slate-500">Priority: </span>
+                <span class="font-semibold rubik">{{ order.priority }}</span>
               </div>
             </div>
             
             <div>
-              <OrderStatusIndicator :status="order.status" :freight-mode="order.freightMode" />
+              <OrderStatusIndicator :status="order.status" :freight-mode="order.freightMode" class="w-full" />
 
               <PrimePanel header="More" toggleable collapsed class="rounded-md mt-1 font-rubik font-normal">
                 <PrimeFieldset>
@@ -65,7 +76,7 @@ const computedTrackingUpdates = computed(() => {
                     </div>
                   </template>
 
-                  <div class="text-sm">
+                  <div class="text-xs md:text-sm">
                     <div>
                       <span>Name: </span> <span class="font-semibold">{{ (order.user as TUser).name }}</span>
                     </div>
@@ -85,22 +96,22 @@ const computedTrackingUpdates = computed(() => {
                   </template>
 
                   <div class="overflow-x-auto">
-                    <PrimeDataTable :value="order.items" size="small" class="text-sm" striped-rows>
+                    <PrimeDataTable :value="order.items" size="small" class="text-xs md:text-sm" striped-rows>
                       <PrimeColumn field="name" header="Name" />
                       <PrimeColumn field="unitPrice" header="Price ($)" />
                       <PrimeColumn field="quantity" header="Quantity" />
                       <PrimeColumn header="Amount ($)">
                         <template #body="{ data }">
-                          {{ data.unitPrice * data.quantity }}
+                          {{ (data.unitPrice * data.quantity).toLocaleString() }}
                         </template>
                       </PrimeColumn>
                     </PrimeDataTable>
                   </div>
 
                   <div class="mt-2">
-                    <div class="flex items-center gap-2 text-sm pl-2">
+                    <div class="flex items-center gap-2 text-xs md:text-sm pl-2">
                       <span>Total:</span>
-                      <span class="font-bold">${{ order.totalPrice }}</span>
+                      <span class="font-bold">${{ order.totalPrice.toLocaleString() }}</span>
                     </div>
                   </div>
                 </PrimeFieldset>
@@ -159,7 +170,7 @@ const computedTrackingUpdates = computed(() => {
                 <div class="mt-2 rubik flex flex-col justify-between flex-grow">
                   <p class="font-medium">
                     <span>$</span>
-                    <span class="text-3xl">{{ Math.floor(order.totalPrice) }}</span>
+                    <span class="text-3xl break-words">{{ Math.floor(order.totalPrice).toLocaleString() }}</span>
                     <span>.{{ (order.totalPrice % 1).toFixed(2).slice(2) }}</span>
                   </p>
                   <p class="text-right text-xs text-slate-500">No updates</p>

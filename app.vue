@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <NuxtLoadingIndicator />
-  <PrimeToast class="max-w-96" />
+  <PrimeToast class="left-1/2 translate-x-[-50%] w-[95dvw] max-w-96 md:left-[unset] md:translate-x-[unset]" />
   <PrimeConfirmDialog class="max-w-96" />
   <NuxtLayout>
     <NuxtPage />

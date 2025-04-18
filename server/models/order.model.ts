@@ -10,7 +10,7 @@ const OrderSchema = new mongoose.Schema<TOrder>(
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     orderId: { type: String, unique: true },
     trackingNumber: { type: String, unique: true },
-    priority: { type: String, enum: ['low', 'medium', 'high'], default: 'low' }
+    priority: { type: String, enum: ['low', 'medium', 'high'], default: 'low' },
     deliveryMode: { type: String, enum: ['home', 'pickup station'] },
     freightMode: { type: String, enum: ['air', 'ocean', 'road'] },
     status: { 

@@ -2,6 +2,14 @@
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-control-geocoder/dist/Control.Geocoder.css'
 
+import markerIcon2x from '~/assets/img/leaflet-marker-icon-2x.png';
+import markerIcon from '~/assets/img/leaflet-marker-icon.png';
+import markerShadow from '~/assets/img/leaflet-marker-shadow.png';
+
+const { height = '350px' } = defineProps<{
+  height?: string
+}>()
+
 export interface PickedLocation {
   lat: number
   lng: number
@@ -38,6 +46,14 @@ onMounted(async () => {
 
   const L = await import('leaflet')
   const Geocoder = (await import('leaflet-control-geocoder')).default
+
+  delete (L.Icon.Default.prototype as any)._getIconUrl;
+  
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow
+  });
 
   map.value = L.map(el.value).setView([0, 0], 5)
 
@@ -109,7 +125,7 @@ onMounted(async () => {
 
 <template>
   <div>
-    <div ref="map-el" class="w-full rounded-md overflow-hidden" style="height: 500px;" />
+    <div ref="map-el" class="w-full rounded-md overflow-hidden" :style="{ height }" />
 
     <div v-if="pickedLocation" class="mt-4 p-4 bg-gray-50 border rounded shadow-sm relative">
       <div v-if="loading" class="absolute inset-0 bg-white/80 flex items-center justify-center z-10">

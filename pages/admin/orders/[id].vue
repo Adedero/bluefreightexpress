@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TOrder, TUser } from '~/definitions';
 import random from 'random-string-generator';
-import { deliveryModes, freightModes, orderStatuses, trackingUpdateSeverities } from '~/data';
+import { deliveryModes, freightModes, orderStatuses, priorities, trackingUpdateSeverities } from '~/data';
 import type { PickedLocation } from '~/components/location-picker.vue';
 
 definePageMeta({
@@ -162,8 +162,8 @@ const resetItems = () => {
 
 ///Delivery 
 const shouldDisableDeliverySaveBtn = computed(() => {
-  const hasChanged = updatedOrder.value.status !== order.value?.status || updatedOrder.value.freightMode !== order.value?.freightMode || updatedOrder.value.deliveryMode !== order.value?.deliveryMode || updatedOrder.value.estimatedDelivery !== order.value?.estimatedDelivery
-  return !hasChanged || !updatedOrder.value.status || !updatedOrder.value.freightMode || !updatedOrder.value.deliveryMode || !updatedOrder.value.estimatedDelivery
+  const hasChanged = updatedOrder.value.priority !== order.value?.priority || updatedOrder.value.status !== order.value?.status || updatedOrder.value.freightMode !== order.value?.freightMode || updatedOrder.value.deliveryMode !== order.value?.deliveryMode || updatedOrder.value.estimatedDelivery !== order.value?.estimatedDelivery
+  return !hasChanged || !updatedOrder.value.priority || !updatedOrder.value.status || !updatedOrder.value.freightMode || !updatedOrder.value.deliveryMode || !updatedOrder.value.estimatedDelivery
 })
 
 const resetDelivery = () => {
@@ -371,7 +371,7 @@ const copyTrackingNumber = async () => {
 
             <div class="flex items-center gap-2">
               <span>Total Price: </span>
-              <span class="font-bold">${{ updatedOrder.totalPrice }}</span>
+              <span class="font-bold">${{ updatedOrder.totalPrice.toLocaleString() }}</span>
             </div>
             
             <div class="flex justify-end gap-2">
@@ -398,23 +398,29 @@ const copyTrackingNumber = async () => {
         <!-- Delivery information -->
         <PrimeFieldset legend="3. Delivery Information" toggleable collapsed>
           <section class="bg-[--p-surface-50] rounded-md p-2 grid gap-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
-              <div class="grid form-control">
+            <div class="grid md:grid-cols-6 lg:grid-cols-5 gap-2">
+
+              <div class="grid form-control md:col-span-2 lg:col-span-1">
+                <label>Priority <span class="text-red-500">*</span></label>
+                <PrimeSelect v-model="updatedOrder.priority" :options="priorities" />
+              </div>
+
+              <div class="grid form-control md:col-span-2 lg:col-span-1">
                 <label>Order Status <span class="text-red-500">*</span></label>
                 <PrimeSelect v-model="updatedOrder.status" :options="orderStatuses" />
               </div>
 
-              <div class="grid form-control">
+              <div class="grid form-control md:col-span-2 lg:col-span-1">
                 <label>Freight Mode <span class="text-red-500">*</span></label>
                 <PrimeSelect v-model="updatedOrder.freightMode" :options="freightModes" />
               </div>
 
-              <div class="grid form-control">
+              <div class="grid form-control md:col-span-3 lg:col-span-1">
                 <label>Delivery Mode <span class="text-red-500">*</span></label>
                 <PrimeSelect v-model="updatedOrder.deliveryMode" :options="deliveryModes" />
               </div>
 
-              <div class="grid form-control">
+              <div class="grid form-control md:col-span-3 lg:col-span-1">
                 <label>Estimated Delivery Date <span class="text-red-500">*</span></label>
                 <PrimeDatePicker v-model="updatedOrder.estimatedDelivery as Date" date-format="dd M, yy" fluid />
               </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TOrder, TUser } from '~/definitions';
 import random from 'random-string-generator';
-import { deliveryModes, freightModes, orderStatuses } from '~/data';
+import { deliveryModes, freightModes, orderStatuses, priorities } from '~/data';
 import type { PickedLocation } from '~/components/location-picker.vue';
 
 definePageMeta({
@@ -33,6 +33,7 @@ const order = reactive<Partial<IOrder>>({
       unitPrice: 0
     }
   ],
+  priority: 'low',
   deliveryMode: 'pickup station',
   freightMode: 'air',
   status: 'processing',
@@ -207,7 +208,12 @@ const createOrder = async () => {
           <PrimeStep>Delivery Information</PrimeStep>
           <PrimeStepPanel v-slot="{ activateCallback }">
             <div class="bg-[--p-surface-50] rounded-md p-2 grid gap-4">
-              <div class="grid md:grid-cols-3 gap-2">
+              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
+                <div class="grid form-control">
+                  <label>Priority <span class="text-red-500">*</span></label>
+                  <PrimeSelect v-model="order.priority" :options="priorities" />
+                </div>
+
                 <div class="grid form-control">
                   <label>Order Status <span class="text-red-500">*</span></label>
                   <PrimeSelect v-model="order.status" :options="orderStatuses" />
@@ -237,7 +243,7 @@ const createOrder = async () => {
                   label="Next"
                   icon="pi pi-arrow-right"
                   icon-pos="right"
-                  :disabled="!order.status || !order.deliveryMode || !order.freightMode"
+                  :disabled="!order.priority || !order.status || !order.deliveryMode || !order.freightMode"
                 />
               </div>
             </div>
