@@ -36,7 +36,7 @@ const works = [
           <h3 class="rubik text-4xl font-bold">We Provide Full Range Global Logistics Solution</h3>
           <div class="text-slate-500">
             <p>
-              We strive to understand what they'e going through, what they need, what their price points are, and what's important to them and their customers.
+              We strive to understand what they are going through, what they need, what their price points are, and what's important to them and their customers.
             </p>
             <p>
               We historically build meaningful relationships with our customers. We connect with our customers. We care.
