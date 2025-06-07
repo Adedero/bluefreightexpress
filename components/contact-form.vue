@@ -54,7 +54,7 @@ const submitForm = async () => {
   loading.value = true
   try {
     await mail({
-      to: site.email,
+      to: site.emails[0],
       subject: 'Contact Request',
       html
     })

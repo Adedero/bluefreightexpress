@@ -41,9 +41,10 @@ useHead({
               <div class="aspect-square p-6 rounded-full bg-primary-400 grid place-content-center">
                 <Icon name="lucide:mail" size="1.75rem" />
               </div>
-              <p class="text-sm font-medium text-center">
-                {{ site.email }}
-              </p>
+              <div class="text-sm font-medium text-center">
+                <p>{{ site.emails[0] }}</p>
+                <p>{{ site.emails[1] }}</p>
+              </div>
             </div>
             
             <div class="flex flex-col items-center justify-center gap-1">

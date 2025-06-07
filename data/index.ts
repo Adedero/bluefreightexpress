@@ -3,7 +3,10 @@ import type { TOrder } from "~/definitions";
 export const site = {
   name: 'Next Port Express',
   abbr: 'NPE',
-  email: 'info@nextportexpress.com',
+  emails: [
+    'info@nextportexpress.com',
+    'expressnextport@gmail.com'
+  ],
   address: 'Office 810, Messeplatz 1',
   city: 'Basel',
   state: 'Basel-Stadt',

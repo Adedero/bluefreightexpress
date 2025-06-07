@@ -13,7 +13,8 @@ import siteLinks from '~/data/site-links';
         </p>
       </NuxtLink>
       <p class="mt-4 text-xs text-slate-300">
-        To be the industry leader, globally recognized for effective & efficient solutions. To provide innovative solutions delivering quality, excellence and speed.
+        To be the industry leader, globally recognized for effective & efficient solutions. To provide innovative
+        solutions delivering quality, excellence and speed.
       </p>
     </div>
 
@@ -29,7 +30,8 @@ import siteLinks from '~/data/site-links';
         <div class="mt-5 text-sm text-slate-300">
           <p>{{ site.address }}</p>
           <p>{{ site.city }}, {{ site.state }}, {{ site.countryAbbr }}</p>
-          <p>E. {{ site.email }}</p>
+          <p>Email 1: {{ site.emails[0] }}</p>
+          <p>Email 2: {{ site.emails[1] }}</p>
         </div>
       </div>
 
@@ -58,7 +60,8 @@ import siteLinks from '~/data/site-links';
 
         <div class="mt-5 text-sm text-slate-300">
           <ul class="grid gap-1">
-            <li v-for="link in siteLinks.find((l) => l.label.toLowerCase() === 'services')?.items ?? []" :key="link.label">
+            <li v-for="link in siteLinks.find((l) => l.label.toLowerCase() === 'services')?.items ?? []"
+              :key="link.label">
               <NuxtLink :to="link.href" class="hover:underline">
                 {{ link.label }}
               </NuxtLink>
@@ -86,7 +89,7 @@ import siteLinks from '~/data/site-links';
     <hr class="my-5 opacity-15">
 
     <div class="text-center text-xs text-slate-300">
-      &copy; Copyright 2012 - Next Port Express 
+      &copy; Copyright 2012 - Next Port Express
     </div>
   </footer>
 </template>
